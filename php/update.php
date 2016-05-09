@@ -11,7 +11,7 @@ if(!isset($_GET['updatenow']) && !isset($_GET['reset'])){
   die();
 }
 require 'connect.php';
-
+ini_set("memory_limit",-1);
 function colorPalette($imageFile, $numColors, $granularity = 5)
 {
    $granularity = max(1, abs((int)$granularity));
@@ -98,6 +98,9 @@ $data = file_get_contents('https://graph.facebook.com/355698711291842/photos/upl
 
 $data = json_decode($data);
 $res = $db->prepare("INSERT INTO artphotos VALUES(:id,NULL,:name,:width,:height,:images,:color,:link,:created_time,1,0,:blurry,:likes,:comments)");
+try{
+
+
 for($i=sizeof($data->data)-1;$i>=0;$i--){
   if(in_array($data->data[$i]->id,$ids)){
     echo "MATCH FOUND!";
@@ -152,5 +155,12 @@ for($i=sizeof($data->data)-1;$i>=0;$i--){
     $res->execute($d);
   }
 }
+
+
+}catch(Exception $e){
+  echo $e->getMessage();
+  exit();
+}
 echo "<a href='?updatenow&offset=".(sizeof($data->data)-1)."'>UPDATE NEXT".(sizeof($data->data)-1)."</a>";
+ini_restore("memory_limit");
 ?>
