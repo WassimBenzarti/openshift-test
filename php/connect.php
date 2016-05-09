@@ -2,10 +2,10 @@
 ignore_user_abort(true);
 define('databaseName','wassim');
 define('databaseData',[
-        'url' => $_SERVER["OPENSHIFT_".databaseName."_DB_HOST"],
-        'port' => $_SERVER["OPENSHIFT_".databaseName."_DB_PORT"],
-        'user' => $_SERVER["OPENSHIFT_".databaseName."_DB_USERNAME"],
-        'pass' => $_SERVER["OPENSHIFT_".databaseName."_DB_PASSWORD"]
+        'url' => $_SERVER["OPENSHIFT_MYSQL_DB_HOST"],
+        'port' => $_SERVER["OPENSHIFT_MYSQL_DB_PORT"],
+        'user' => $_SERVER["OPENSHIFT_MYSQL_DB_USERNAME"],
+        'pass' => $_SERVER["OPENSHIFT_MYSQL_DB_PASSWORD"]
 ]);
 echo var_dump($_SERVER);
 define('SERVERROOTPATH',dirname(dirname(__FILE__)));
