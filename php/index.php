@@ -1,4 +1,5 @@
 <?php
-  echo "hello world";
-  echo file_get_contents("http://example.com/");
- ?>
+  echo "<pre>";
+  echo var_dump($_SERVER);
+  echo "</pre>";
+?>
