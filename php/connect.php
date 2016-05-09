@@ -2,6 +2,7 @@
 ignore_user_abort(true);
 define('databaseName','wassim');
 define('SERVERROOTPATH',$_SERVER['DOCUMENT_ROOT']);
+echo getenv("OPENSHIFT_DATA_DIR");
 define('SERVERMENUPATH',SERVERROOTPATH."/menu.php");
 define('SERVERFOOTERPATH',SERVERROOTPATH."/footer.php");
 define('SERVERHEADPATH',SERVERROOTPATH."/inc/common/head.php");
