@@ -1,7 +1,7 @@
 <?php
 ignore_user_abort(true);
 define('databaseName','wassim');
-define('SERVERROOTPATH',$_SERVER['DOCUMENT_ROOT']);echo SERVERROOTPATH;
+define('SERVERROOTPATH',$_SERVER['DOCUMENT_ROOT']);
 define('SERVERMENUPATH',SERVERROOTPATH."/menu.php");
 define('SERVERFOOTERPATH',SERVERROOTPATH."/footer.php");
 define('SERVERHEADPATH',SERVERROOTPATH."/inc/common/head.php");
