@@ -135,7 +135,7 @@ for($i=sizeof($data->data)-1;$i>=0;$i--){
 
     for($j=0;$j<30;$j++){imagefilter($image, IMG_FILTER_GAUSSIAN_BLUR);}
 
-    echo getenv('OPENSHIFT_DATA_DIR').$d['blurry'];
+    echo SERVERROOTPATH.$d['blurry'];
     if (!imagejpeg($image,SERVERROOTPATH.$d['blurry'],75)){die("error occurred on saving");};
     imagedestroy($image);
     $d["color"]=$color;
