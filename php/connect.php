@@ -1,5 +1,4 @@
 <?php
-die(var_dump($_SERVER));
 ignore_user_abort(true);
 define('databaseName','wassim');
 define('databaseData',[
@@ -8,7 +7,7 @@ define('databaseData',[
         'user' => $_SERVER["OPENSHIFT_".databaseName."_DB_USERNAME"],
         'pass' => $_SERVER["OPENSHIFT_".databaseName."_DB_PASSWORD"]
 ]);
-
+var_dump(databaseData);
 define('SERVERROOTPATH',dirname(dirname(__FILE__)));
 define('SERVERMENUPATH',SERVERROOTPATH."/menu.php");
 define('SERVERFOOTERPATH',SERVERROOTPATH."/footer.php");
