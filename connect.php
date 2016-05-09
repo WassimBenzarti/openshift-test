@@ -1,4 +1,5 @@
 <?php
+
 ignore_user_abort(true);
 define('databaseName','codesign');
 define('SERVERROOTPATH',dirname(dirname(__FILE__)));
