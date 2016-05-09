@@ -7,7 +7,12 @@ define('databaseData',[
         'user' => $_SERVER["OPENSHIFT_MYSQL_DB_USERNAME"],
         'pass' => $_SERVER["OPENSHIFT_MYSQL_DB_PASSWORD"]
 ]);
-echo var_dump(databaseData);
+echo var_dump([
+        'url' => $_SERVER["OPENSHIFT_MYSQL_DB_HOST"],
+        'port' => $_SERVER["OPENSHIFT_MYSQL_DB_PORT"],
+        'user' => $_SERVER["OPENSHIFT_MYSQL_DB_USERNAME"],
+        'pass' => $_SERVER["OPENSHIFT_MYSQL_DB_PASSWORD"]
+]);
 define('SERVERROOTPATH',dirname(dirname(__FILE__)));
 define('SERVERMENUPATH',SERVERROOTPATH."/menu.php");
 define('SERVERFOOTERPATH',SERVERROOTPATH."/footer.php");
