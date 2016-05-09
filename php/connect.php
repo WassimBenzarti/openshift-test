@@ -2,6 +2,13 @@
 
 ignore_user_abort(true);
 define('databaseName','wassim');
+define('databaseData',[
+        'url' => $_SERVER["OPENSHIFT_".databaseName."_DB_HOST"],
+        'port' => $_SERVER["OPENSHIFT_".databaseName."_DB_PORT"],
+        'user' => $_SERVER["OPENSHIFT_".databaseName."_DB_USERNAME"],
+        'pass' => $_SERVER["OPENSHIFT_".databaseName."_DB_PASSWORD"]
+]);
+var_dump(databaseData);
 define('SERVERROOTPATH',dirname(dirname(__FILE__)));
 define('SERVERMENUPATH',SERVERROOTPATH."/menu.php");
 define('SERVERFOOTERPATH',SERVERROOTPATH."/footer.php");
