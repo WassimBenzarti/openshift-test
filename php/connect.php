@@ -7,12 +7,7 @@ define('databaseData',[
         'user' => $_SERVER["OPENSHIFT_".databaseName."_DB_USERNAME"],
         'pass' => $_SERVER["OPENSHIFT_".databaseName."_DB_PASSWORD"]
 ]);
-echo var_dump([
-        'url' => $_SERVER["OPENSHIFT_".databaseName."_DB_HOST"],
-        'port' => $_SERVER["OPENSHIFT_".databaseName."_DB_PORT"],
-        'user' => $_SERVER["OPENSHIFT_".databaseName."_DB_USERNAME"],
-        'pass' => $_SERVER["OPENSHIFT_".databaseName."_DB_PASSWORD"]
-]);
+echo var_dump($_SERVER);
 define('SERVERROOTPATH',dirname(dirname(__FILE__)));
 define('SERVERMENUPATH',SERVERROOTPATH."/menu.php");
 define('SERVERFOOTERPATH',SERVERROOTPATH."/footer.php");
