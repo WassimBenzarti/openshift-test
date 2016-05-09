@@ -101,7 +101,7 @@ $res = $db->prepare("INSERT INTO artphotos VALUES(:id,NULL,:name,:width,:height,
 for($i=sizeof($data->data)-1;$i>=0;$i--){
   if(in_array($data->data[$i]->id,$ids)){
     echo "MATCH FOUND!";
-    //die();
+    die();
   }else{
     $d = (array)$data->data[$i];
     $filename = str_replace('https://','http://',end($d["images"])->source);
