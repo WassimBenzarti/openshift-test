@@ -1,4 +1,5 @@
 <?php
+die(getenv["OPENSHIFT_MYSQL_DB_HOST"]);
 ignore_user_abort(true);
 define('databaseName','wassim');
 define('SERVERROOTPATH',dirname(dirname(__FILE__)));
