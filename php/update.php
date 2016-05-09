@@ -134,8 +134,8 @@ for($i=sizeof($data->data)-1;$i>=0;$i--){
     //imagefilter($image, IMG_FILTER_BRIGHTNESS,30);
 
     for($j=0;$j<30;$j++){imagefilter($image, IMG_FILTER_GAUSSIAN_BLUR);}
-    die(imagejpeg($image,SERVERROOTPATH.$d['blurry'],75));
-    //if (!imagejpeg($image,SERVERROOTPATH.$d['blurry'],75)){die("error occurred on saving");};
+    //die(var_dump(imagejpeg($image,SERVERROOTPATH.$d['blurry'],75)));
+    if (!imagejpeg($image,SERVERROOTPATH.$d['blurry'],75)){die("error occurred on saving");};
     imagedestroy($image);
     $d["color"]=$color;
     $d["images"]=json_encode($d['images']);
