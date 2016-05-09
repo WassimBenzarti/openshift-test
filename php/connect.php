@@ -2,6 +2,8 @@
 ignore_user_abort(true);
 define('databaseName','wassim');
 define('SERVERROOTPATH',dirname(dirname(__FILE__)));
+echo "<br>dirname(dirname(__FILE__)) = ".dirname(dirname(__FILE__));
+echo "<br>$_SERVER['DOCUMENT_ROOT'] = ".$_SERVER['DOCUMENT_ROOT'];
 define('SERVERMENUPATH',SERVERROOTPATH."/menu.php");
 define('SERVERFOOTERPATH',SERVERROOTPATH."/footer.php");
 define('SERVERHEADPATH',SERVERROOTPATH."/inc/common/head.php");
