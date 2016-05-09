@@ -1,12 +1,12 @@
 <?php
 ignore_user_abort(true);
 define('databaseName','wassim');
-define('databaseData',[
+define('databaseData',array(
         'url' => $_SERVER["OPENSHIFT_MYSQL_DB_HOST"],
         'port' => $_SERVER["OPENSHIFT_MYSQL_DB_PORT"],
         'user' => $_SERVER["OPENSHIFT_MYSQL_DB_USERNAME"],
         'pass' => $_SERVER["OPENSHIFT_MYSQL_DB_PASSWORD"]
-]);
+));
 echo var_dump(databaseData['url']);
 define('SERVERROOTPATH',dirname(dirname(__FILE__)));
 define('SERVERMENUPATH',SERVERROOTPATH."/menu.php");
