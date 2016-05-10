@@ -1,5 +1,5 @@
 <?php
-  require_once(CONNECTOR);
+  require_once(getenv("OPENSHIFT_REPO_DIR")."php/connect.php");
   $limit = (empty($_GET['nb']))?20:$_GET['nb'];
   $page = (empty($_GET['pg']))?0:$_GET['pg'];
   $count = (isset($_GET['count']))?";SELECT COUNT(*) 'c' FROM projects":'';

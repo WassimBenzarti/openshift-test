@@ -1,5 +1,5 @@
 <?php
-require_once(CONNECTOR);
+require_once(getenv("OPENSHIFT_REPO_DIR")."php/connect.php");
 session_start();
 if(empty($_GET['id'])){die();}
 $liked=(empty($_COOKIE['liked']))?"[]":$_COOKIE['liked'];

@@ -1,5 +1,5 @@
 <?php
-require_once(CONNECTOR);
+require_once(getenv("OPENSHIFT_REPO_DIR")."php/connect.php");
 
 $req=json_decode(file_get_contents("https://graph.facebook.com/355698711291842/photos/uploaded?fields=comments.limit(0).summary(true),id&limit(25)&access_token=".FBTOKEN));
 $query="UPDATE artphotos SET comments =

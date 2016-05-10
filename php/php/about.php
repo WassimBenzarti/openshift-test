@@ -1,5 +1,5 @@
 <?php
-require_once(CONNECTOR);
+require_once(getenv("OPENSHIFT_REPO_DIR")."php/connect.php");
 if(isset($_GET['skills'])){
   $res = $db->prepare("SELECT s.name,s.val,f.fieldname 'field' FROM skills s, skillfields f WHERE f.fieldname=s.field ORDER BY f.val DESC, s.val DESC");
   $res->execute();

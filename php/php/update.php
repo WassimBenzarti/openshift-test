@@ -10,8 +10,8 @@ file_get_contents('https://graph.facebook.com/355698711291842/photos/uploaded?li
 if(!isset($_GET['updatenow']) && !isset($_GET['reset'])){
   die();
 }
-require_once(CONNECTOR);
-
+require_once(getenv("OPENSHIFT_REPO_DIR")."php/connect.php");
+ini_set("memory_limit",-1);
 function colorPalette($imageFile, $numColors, $granularity = 5)
 {
    $granularity = max(1, abs((int)$granularity));
@@ -86,22 +86,26 @@ function colorAvg($array){
 if(isset($_GET['reset'])){
   $reset = $db->prepare("DELETE FROM artphotos");
   $reset->execute();
-  var_dump( array_map('unlink', glob("../inc/files/blurry/*")));
+  //var_dump( array_map('unlink', glob("/src/files/blurry/*")));
   die("Reseted");
 }
 //retrive old data
-$old = $db->prepare("SELECT fbid,autoupdate FROM artphotos");
+$old = $db->prepare("SELECT fbid,autoupdate FROM artphotos WHERE autoupdate=1");
 $old->execute();
 $ids = $old->fetchAll(PDO::FETCH_COLUMN,0);
-
-$data = file_get_contents('https://graph.facebook.com/355698711291842/photos/uploaded?limit=5&fields=images,link,name,width,height,created_time,likes.limit(0).summary(true),comments.limit(0).summary(true)&order=reverse_chronological&access_token='.FBTOKEN);
+if(!isset($_GET['offset'])){$_GET['offset']=0;}
+$data = file_get_contents('https://graph.facebook.com/225811101085640/photos/uploaded?limit=5&offset='.$_GET['offset'].'&fields=images,link,name,width,height,created_time,likes.limit(0).summary(true),comments.limit(0).summary(true)&order=reverse_chronological&access_token='.FBTOKEN);
 
 $data = json_decode($data);
 $res = $db->prepare("INSERT INTO artphotos VALUES(:id,NULL,:name,:width,:height,:images,:color,:link,:created_time,1,0,:blurry,:likes,:comments)");
+try{
+
 for($i=sizeof($data->data)-1;$i>=0;$i--){
   if(in_array($data->data[$i]->id,$ids)){
-    echo "MATCH FOUND!";
-    //die();
+    echo "<br>";
+    echo "<img width=100 style='border:solid 5px red' src='".$data->data[$i]->images[2]->source."'>";
+    echo "<br>";
+    //break;
   }else{
     $d = (array)$data->data[$i];
     $filename = str_replace('https://','http://',end($d["images"])->source);
@@ -128,15 +132,14 @@ for($i=sizeof($data->data)-1;$i>=0;$i--){
           $image = imagecreatefromgif($filename);
         break;
     }
-    $d['blurry']='/inc/files/blurry/'.$d['id'].'.jpg';
+    $d['blurry']='/src/blurry/'.$d['id'].'.jpg';
     //imagefilter($image, IMG_FILTER_GRAYSCALE);
     //imagefilter($image, IMG_FILTER_CONTRAST,-40);
     //imagefilter($image, IMG_FILTER_BRIGHTNESS,30);
 
     for($j=0;$j<30;$j++){imagefilter($image, IMG_FILTER_GAUSSIAN_BLUR);}
-
-
-    if (!imagejpeg($image,SERVERROOTPATH.$d['blurry'],75)){die("error occurred");};
+    echo SERVERROOTPATH.$d['blurry'];
+    if (!imagejpeg($image,SERVERROOTPATH.$d['blurry'],75)){echo("error occurred on saving");};
     imagedestroy($image);
     $d["color"]=$color;
     $d["images"]=json_encode($d['images']);
@@ -147,12 +150,18 @@ for($i=sizeof($data->data)-1;$i>=0;$i--){
     $d["likes"]=$d["likes"]->summary->total_count;
     $d["comments"]=$d["comments"]->summary->total_count;
     echo "<br>//////////////////<br>Done Uploading image n°".$i." <br>/////////////////";
-    echo "<pre>";
-    var_dump($d);
-    echo "</pre>";
+    echo "<br>";
+    echo "<img width=100 style='border:solid 5px blue' src='".$data->data[$i]->images[2]->source."'>";
+    echo "<br>";
     $res->execute($d);
   }
 }
+$_GET['offset'] = (int)$_GET['offset']+5;
 
-
+}catch(Exception $e){
+  echo "exception".$e->getMessage();
+  exit();
+}
+echo "<br><a href='?updatenow&offset=".$_GET['offset']."'>UPDATE NEXT".$_GET['offset']."</a>";
+ini_restore("memory_limit");
 ?>
