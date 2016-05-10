@@ -24,6 +24,6 @@
 <script src="/js/jquery.easing.min.js"></script>
 <script src="/js/menu.js"></script>
 <script src="/js/inc.js"></script>
-<script src="/test.js"></script>
+<script src="/js/theater.js"></script>
 <link rel="stylesheet" href="/css/menu.css" charset="utf-8">
 <link rel="stylesheet" href="/css/inc.css" charset="utf-8">
