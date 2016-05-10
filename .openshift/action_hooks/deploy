@@ -11,5 +11,5 @@ if [ ! -d "$OPENSHIFT_DATA_DIR/upload" ]; then
     echo directory made.
 fi
 mkdir ${OPENSHIFT_REPO_DIR}php/upload
-#ln -s ${OPENSHIFT_DATA_DIR}upload ${OPENSHIFT_REPO_DIR}php/upload
+ln -s ${OPENSHIFT_DATA_DIR}upload ${OPENSHIFT_REPO_DIR}php/upload
 echo ".................creating symlinks completed........................"
