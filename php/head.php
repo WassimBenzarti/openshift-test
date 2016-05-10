@@ -1,5 +1,5 @@
 <meta charset="utf-8">
-<base href="http://wassim-benzarti.rhcloud.com/src">
+<base href="http://wassim-benzarti.rhcloud.com/">
 <link rel="shortcut icon" href="/inc/favicon/favicon.ico">
 <link rel="icon" sizes="16x16 32x32 64x64" href="/inc/favicon/favicon.ico">
 <link rel="icon" type="image/png" sizes="196x196" href="/inc/favicon/favicon-192.png">
