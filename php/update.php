@@ -104,7 +104,7 @@ try{
 for($i=sizeof($data->data)-1;$i>=0;$i--){
   if(in_array($data->data[$i]->id,$ids)){
     echo "MATCH FOUND!";
-    exit;
+    break;
   }else{
     $d = (array)$data->data[$i];
     $filename = str_replace('https://','http://',end($d["images"])->source);
