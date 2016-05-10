@@ -103,7 +103,7 @@ try{
 for($i=sizeof($data->data)-1;$i>=0;$i--){
   if(in_array($data->data[$i]->id,$ids)){
     echo "<br>";
-    echo "ELEMENT $i EXIST = ".$data->data[$i]->id;
+    echo "<img width=100 style='border:solid 5px red' src='".$data->data[$i]->images[2]->source."'>";
     echo "<br>";
     break;
   }else{
@@ -150,9 +150,9 @@ for($i=sizeof($data->data)-1;$i>=0;$i--){
     $d["likes"]=$d["likes"]->summary->total_count;
     $d["comments"]=$d["comments"]->summary->total_count;
     echo "<br>//////////////////<br>Done Uploading image n°".$i." <br>/////////////////";
-    echo "<pre>";
-    var_dump($d);
-    echo "</pre>";
+    echo "<br>";
+    echo "<img width=100 style='border:solid 5px blue' src='".$data->data[$i]->images[2]->source."'>";
+    echo "<br>";
     $res->execute($d);
   }
 }
