@@ -1,4 +1,3 @@
-<?php define('CONNECTOR',SERVERROOTPATH."/connect.php"); ?>
 <meta charset="utf-8">
 <link rel="shortcut icon" href="/inc/favicon/favicon.ico">
 <link rel="icon" sizes="16x16 32x32 64x64" href="/inc/favicon/favicon.ico">
