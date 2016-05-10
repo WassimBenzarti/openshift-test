@@ -155,12 +155,12 @@ for($i=sizeof($data->data)-1;$i>=0;$i--){
     $res->execute($d);
   }
 }
-
+$_GET['offset'] = $i+5;
 
 }catch(Exception $e){
   echo $e->getMessage();
   exit();
 }
-echo "<a href='?updatenow&offset=".(sizeof($data->data)-1)."'>UPDATE NEXT".(sizeof($data->data)-1)."</a>";
+echo "<a href='?updatenow&offset=".$_GET['offset']."'>UPDATE NEXT".$_GET['offset']."</a>";
 ini_restore("memory_limit");
 ?>
