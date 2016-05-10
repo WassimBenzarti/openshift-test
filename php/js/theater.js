@@ -25,8 +25,8 @@
       elm.addClass('gradient').find(".likeBtn,.commentBtn").css('bottom',0);
       console.log(ratio);
       if(ratio > 1.2){
-        height=vWidth/ratio;
-        elm.width(vWidth).height(height).css('margin',(($(window).outerHeight()-height)/2)+'px auto');
+        height=(vHeight>vWidth)?vWidth/ratio:vHeight;
+        elm.width((vHeight>vWidth)?vWidth:vHeight*ratio).height(height).css('margin',(($(window).outerHeight()-height)/2)+'px auto');
         offScale = (self.original.width()/self.original.height())/(self.elm.width()/self.elm.height());
       }else if(ratio<0.8){
         height=vHeight;
