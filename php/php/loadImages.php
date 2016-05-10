@@ -1,5 +1,5 @@
 <?php
-require 'connect.php';
+require_once(CONNECTOR);
 $limit = (empty($_GET['nb']))?1:$_GET['nb'];
 $page = (empty($_GET['pg']))?0:$_GET['pg'];
 

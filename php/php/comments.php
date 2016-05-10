@@ -1,5 +1,5 @@
 <?php
-require 'connect.php';
+require_once(CONNECTOR);
 $limit = (empty($_GET['nb']))?3:$_GET['nb'];
 $pgFB = (empty($_GET['pgFB']))?0:$_GET['pgFB'];
 $pgDB = (empty($_GET['pgDB']))?0:$_GET['pgDB'];

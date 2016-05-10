@@ -1,5 +1,5 @@
 <?php
-require 'connect.php';
+require_once(CONNECTOR);
 session_start();
 if(empty($_GET['id'])){die();}
 $liked=(empty($_COOKIE['liked']))?"[]":$_COOKIE['liked'];

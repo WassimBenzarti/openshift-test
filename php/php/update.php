@@ -10,7 +10,7 @@ file_get_contents('https://graph.facebook.com/355698711291842/photos/uploaded?li
 if(!isset($_GET['updatenow']) && !isset($_GET['reset'])){
   die();
 }
-require 'connect.php';
+require_once(CONNECTOR);
 
 function colorPalette($imageFile, $numColors, $granularity = 5)
 {
