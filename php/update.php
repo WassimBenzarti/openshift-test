@@ -103,7 +103,9 @@ try{
 
 for($i=sizeof($data->data)-1;$i>=0;$i--){
   if(in_array($data->data[$i]->id,$ids)){
-    echo "MATCH FOUND!";
+    echo "<br>";
+    echo "ELEMENT $i EXIST = ".$data->data[$i]->id ;
+    echo "<br>";
     break;
   }else{
     $d = (array)$data->data[$i];
