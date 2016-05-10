@@ -26,7 +26,7 @@
       console.log(ratio);
       if(ratio > 1.2){
         height=vWidth/ratio;
-        elm.width(vWidth).height(height).css('margin-top',0).css('margin',(($(window).outerHeight()-height)/2)+'px auto');
+        elm.width(vWidth).height(height).css('margin',(($(window).outerHeight()-height)/2)+'px auto');
         offScale = (self.original.width()/self.original.height())/(self.elm.width()/self.elm.height());
       }else if(ratio<0.8){
         height=vHeight;
@@ -42,7 +42,7 @@
         }
         var offX= cPt(self.original)[0] - ($(document.body).outerWidth()/2),
             offY = cPt(self.original)[1] - ($(window).outerHeight()/2),
-            offScale = self.original.width()/self.elm.width(),
+            //offScale = self.original.width()/self.elm.width(),
             offScale = Math.max(self.original.width(),self.original.height())/Math.max(self.elm.width(),self.elm.height())
         elm.data('data-transform','translate3d('+offX+'px,'+offY+'px,0px) scale('+offScale+')');
         setVendor(elm.get(0),'Transform','translate3d('+offX+'px,'+offY+'px,0px) scale('+offScale+')');
