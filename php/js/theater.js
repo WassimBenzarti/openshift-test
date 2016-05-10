@@ -45,8 +45,8 @@
             //offX= cPt(self.original)[0] - ($(window).outerWidth()/2) ,
             //offY = cPt(self.original)[1] - ($(window).outerHeight()/2);
             //offScale = self.original.width()/self.elm.width(),
-        var offX = cPt(self.original)[0] - (self.elm.width()*offScale)/2 - ($(window).outerWidth()/2),
-            offY = cPt(self.original)[1] - (self.elm.height()*offScale)/2 - ($(window).outerHeight()/2);
+        var offX = cPt(self.original)[0] - (self.elm.width()*offScale/2) - ($(window).outerWidth()/2),
+            offY = cPt(self.original)[1] - (self.elm.height()*offScale/2) - ($(window).outerHeight()/2);
 
         setVendor(elm.get(0),'Transform','translate3d('+offX+'px,'+offY+'px,0px) scale('+offScale+')');
 
