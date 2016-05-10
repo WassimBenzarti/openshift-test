@@ -1,5 +1,5 @@
 <?php
-  require_once("/connect.php");
+  require_once(getenv("OPENSHIFT_REPO_DIR")."php/connect.php");
 ?>
 <!DOCTYPE html>
 <html>
