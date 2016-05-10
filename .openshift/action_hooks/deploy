@@ -6,5 +6,5 @@
 
 # create the uploads directory if it doesn't exist
 echo ".............pre_build............creating symlinks................."
-ln -s ${OPENSHIFT_DATA_DIR} ${OPENSHIFT_REPO_DIR}php/src
+ln -s ${OPENSHIFT_DATA_DIR}files ${OPENSHIFT_REPO_DIR}php/src
 echo ".................creating symlinks completed........................"
