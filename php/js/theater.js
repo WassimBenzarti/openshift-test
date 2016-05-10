@@ -47,6 +47,7 @@
             //offScale = self.original.width()/self.elm.width(),
 
         elm.data('data-transform','translate3d('+offX+'px,'+offY+'px,0px) scale('+offScale+')');
+        setVendor(elm.get(0),'TransformOrigin','center center');
         setVendor(elm.get(0),'Transform','translate3d('+offX+'px,'+offY+'px,0px) scale('+offScale+')');
         setTimeout(function(){setVendor(elm.get(0),'Transform','');self.overlay.addClass('shown');},100);
         setTimeout(function(){self.tag.removeClass('move')},1000);
