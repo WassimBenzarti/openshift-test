@@ -42,13 +42,15 @@
         }
 
         var offScale = Math.max(self.original.width(),self.original.height())/Math.max(self.elm.width(),self.elm.height()),
-            offX= cPt(self.original)[0] - ($(window).outerWidth()/2) ,
-            offY = cPt(self.original)[1] - ($(window).outerHeight()/2);
+            //offX= cPt(self.original)[0] - ($(window).outerWidth()/2) ,
+            //offY = cPt(self.original)[1] - ($(window).outerHeight()/2);
             //offScale = self.original.width()/self.elm.width(),
+            offX = self.original.offset().left - (self.elm.width()*offScale)/2 - ($(window).outerWidth()/2),
+            offY = self.original.offset().top - (self.elm.height()*offScale)/2 - ($(window).outerHeight()/2);
+
+        setVendor(elm.get(0),'Transform','translate3d('+offX+'px,'+offY+'px,0px) scale('+offScale+')');
 
         elm.data('data-transform','translate3d('+offX+'px,'+offY+'px,0px) scale('+offScale+')');
-        setVendor(elm.get(0),'TransformOrigin','center center');
-        setVendor(elm.get(0),'Transform','translate3d('+offX+'px,'+offY+'px,0px) scale('+offScale+')');
         setTimeout(function(){setVendor(elm.get(0),'Transform','');self.overlay.addClass('shown');},100);
         setTimeout(function(){self.tag.removeClass('move')},1000);
       }
@@ -89,7 +91,6 @@
   }
   this.close=function(e){
     if(!self.enabled || (typeof e != "undefined" && $(e.target).attr('id')!='THEATER')) return;
-    setVendor(self.elm.get(0),'TransformOrigin','center center');
     setVendor(self.elm.get(0),'Transform',self.elm.data('data-transform'));
 
     self.overlay.removeClass('shown');
