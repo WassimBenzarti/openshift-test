@@ -42,7 +42,7 @@
         }
 
         var offScale = Math.max(self.original.width(),self.original.height())/Math.max(self.elm.width(),self.elm.height()),
-            offX= cPt(self.original)[0] - ($(window).outerHeight()/2) ,
+            offX= cPt(self.original)[0] - ($(window).outerWidth()/2) ,
             offY = cPt(self.original)[1] - ($(window).outerHeight()/2);
             //offScale = self.original.width()/self.elm.width(),
 
@@ -89,6 +89,7 @@
   }
   this.close=function(e){
     if(!self.enabled || (typeof e != "undefined" && $(e.target).attr('id')!='THEATER')) return;
+    setVendor(self.elm.get(0),'TransformOrigin','center center');
     setVendor(self.elm.get(0),'Transform',self.elm.data('data-transform'));
 
     self.overlay.removeClass('shown');
