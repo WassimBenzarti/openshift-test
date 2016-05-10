@@ -10,7 +10,7 @@ file_get_contents('https://graph.facebook.com/355698711291842/photos/uploaded?li
 if(!isset($_GET['updatenow']) && !isset($_GET['reset'])){
   die();
 }
-require 'connect.php';
+require_once(getenv("OPENSHIFT_REPO_DIR")."php/connect.php");
 ini_set("memory_limit",-1);
 function colorPalette($imageFile, $numColors, $granularity = 5)
 {

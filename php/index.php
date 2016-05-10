@@ -6,19 +6,18 @@
   <head>
     <title>CoDesign</title>
     <?php require_once(SERVERHEADPATH); ?>
-
   </head>
 
   <body id="body" class="loading" bgcolor="#1B1B1B">
     <?php require_once(SERVERMENUPATH); ?>
     <div id="mainContainer">
       <link rel="stylesheet" href="css/index.css" charset="utf-8">
-      <script src="js/firewall.min.js"></script>
-      <script src="js/imageLoader.js"></script>
-      <script src="js/soundcloud.js"></script>
-      <script src="js/projectLoader.js"></script>
-      <script src="js/loadingCircle.js"></script>
-      <script src="js/index.js"></script>
+      <script src="/js/firewall.min.js"></script>
+      <script src="/js/imageLoader.js"></script>
+      <script src="/js/soundcloud.js"></script>
+      <script src="/js/projectLoader.js"></script>
+      <script src="/js/loadingCircle.js"></script>
+      <script src="/js/index.js"></script>
 
       <section class="section1">
         <video id="liveBackground" style="display:none" preload="none" muted loop>
