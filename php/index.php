@@ -7,6 +7,7 @@
       h1{
         position:absolute;
         top:50%; left:50%;
+        margin:0;
         transform:translate(-50%,-50%);
       }
     </style>
