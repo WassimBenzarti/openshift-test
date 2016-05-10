@@ -23,7 +23,7 @@ body{background:#FFF;}
   height:30%;
   margin:0 auto;
   display:block;
-  background: url('../inc/logo/LogoArchi.png') no-repeat 49% center/contain;
+  background: url('../inc/logo/logoArchi.png') no-repeat 49% center/contain;
   animation:animInitialHeader 1s .7s cubic-bezier(0.7,0,0.3,1) forwards;
 }
 .loading #HEAD .logo{animation:none;}

@@ -12,7 +12,7 @@
   height:100%;
   margin:0 auto;
   display:block;
-  background: url('../inc/logo/LogoArchiB.png') no-repeat 49% center/contain;
+  background: url('../inc/logo/logoArchiB.png') no-repeat 49% center/contain;
   animation:animInitialHeader 1s .7s cubic-bezier(0.7,0,0.3,1) forwards;
 }
 .loading #HEAD .logo{animation:none;}

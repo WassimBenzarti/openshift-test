@@ -28,7 +28,7 @@ section h1{
 }
 .section1 .logo{
   height:30%;
-  background:url('/src/inc/logo/LogoArchi.png') no-repeat 49% center/contain;
+  background:url('/src/inc/logo/logoArchi.png') no-repeat 49% center/contain;
   position: relative;
   z-index: 1;
   transition:transform .5s 1s ease,opacity .5s 1s;
