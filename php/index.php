@@ -1,5 +1,5 @@
 <?php
-  require_once("/php/connect.php");
+  require_once("connect.php");
 ?>
 <!DOCTYPE html>
 <html>
