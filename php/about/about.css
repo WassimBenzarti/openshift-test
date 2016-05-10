@@ -1,0 +1,267 @@
+#HEAD{
+  height:75%;
+  text-align: center;
+  color:#FFF;
+  background-size:cover;
+  background-position:center;
+  background-repeat: no-repeat;
+  position:relative;
+}
+#pageCover{
+  width:100%;
+  position:absolute;
+  background-size:cover;
+  background-position:center;
+  background-repeat: no-repeat;
+  height:100%;
+  display:block;
+}
+body.loading #HEAD{animation:none;}
+body{background:#FFF;}
+#HEAD .logo{
+  width:100%;
+  height:30%;
+  margin:0 auto;
+  display:block;
+  background: url('../inc/logo/LogoArchi.png') no-repeat 49% center/contain;
+  animation:animInitialHeader 1s .7s cubic-bezier(0.7,0,0.3,1) forwards;
+}
+.loading #HEAD .logo{animation:none;}
+#HEAD .title{
+  position:relative;
+  font:500 6vh 'Roboto';
+  letter-spacing: 10px;
+  text-align: center;
+  margin:9% auto 0 -10px;
+  margin:13vh auto 0 -10px;
+  color:#db4437;
+  display:inline-block;
+  padding:0 0 0 10px;
+  background:#FFF;
+}
+#pagePic{
+  border:solid 3px #FFF;
+  width:170px;
+  height:170px;
+  display:block;
+  position:relative;
+  z-index:1;
+  border-radius: 100%;
+  margin:-90px auto 0 auto;
+}
+#ABOUT{
+  height:auto;
+  min-height:100%;
+  margin: -40px auto -15px auto;
+  width:100%;
+  text-align: center;
+  color:#555;
+  background-color:#FFF;
+  text-transform: uppercase;
+}
+#ABOUT span.dots{margin:10px 0 30px 0;display:block;}
+#ABOUT span.dots:before{
+  content:'...';
+  font:bold 40px sans-serif;
+  letter-spacing: 10px;
+  padding:0 0 0 10px;
+}
+#info{
+  padding:40px 40px 0 40px;
+}
+#ABOUT>#info>.name{
+  font:lighter 60px 'Roboto';
+  margin:0;
+  padding:0 10px;
+}
+#ABOUT>#info>.lastName{
+  font:bold 25px 'Montserrat';
+  margin:0;
+  letter-spacing: 10px;
+  padding:0 0 0 10px;
+}
+#ABOUT h4{
+  font:bold 15px 'Roboto';
+  letter-spacing: 5px;
+  padding-left:5px;
+}
+#ABOUT h2.subtitle{
+  border:solid 5px #555;
+  color:#555;
+  display:inline-block;
+  padding:10px 20px;
+  margin:200px auto 30px auto;
+  letter-spacing: 5px;
+  font:bold 30px 'Roboto';
+}
+#ABOUT>#info>h4.speech{
+  font:500 15px 'Roboto';
+  margin:auto;
+  width:100%;
+  text-align: left;
+  line-height: 30px;
+  max-width:600px;
+}
+#ABOUT #skills .field{
+  position:relative;
+  font:500 14px 'Roboto';
+  width:100%;
+  max-width:270px;
+  margin:10px;
+  padding:5px;
+  display:inline-block;
+  vertical-align: top;
+}
+#ABOUT #skills .field>h1{
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-family: Roboto;
+  font-size: 15px;
+  padding: 20px;
+  color: #AAA;
+  margin: 0;
+}
+#ABOUT #skills .field>label{
+  text-align:left;
+  display:block;
+  margin:10px 0 0 20px;
+  position:relative;
+}
+#ABOUT .progressBar{
+  width:100%;
+  height:5px;
+  background:#DDD;
+  position:relative;
+}
+#ABOUT .progress{
+  background:#AAA;
+  height:100%;
+  display:block;
+  position:absolute;
+  transition:width 1s cubic-bezier(0.77, 0, 0.175, 1);
+}
+#ABOUT .progressBar>.progress:before{
+  content:attr(data-value) "%";
+  position:absolute;
+  font:bold 12px 'Roboto';
+  top:100%;right:0;
+  color:#AAA;
+}
+#ABOUT .field>.progress{
+  background:#EEE;
+  height:60px;
+}
+#ABOUT #timeline{
+  min-height:500px;
+  max-width:900px;
+  width:100%;
+  display:block;
+  position:relative;
+  text-align:left;
+  margin:50px auto 0 auto;
+  border-bottom:solid 200px #FFF;
+  font:500 15px 'Roboto';
+}
+#ABOUT #timeline>.line{
+  content:'';
+  position:absolute;
+  left: 20%; top:60px; width:3px; height:100%;
+  background:#000;
+  transition:transform 2s;
+  transform-origin:top;
+  transform:none;
+}
+#ABOUT #timeline.load>.line{transform: scaleY(0)}
+#ABOUT #timeline:before{
+  content:'';
+  position:absolute;
+  left: 20%; top:50px; width:10px; height:10px;
+  transform:translateX(-4px);
+  z-index:0;
+  background:#000;border-radius: 100%;
+}
+#ABOUT #timeline:after{
+  content:'';
+  position:absolute;
+  left: 20%; bottom:-70px; width:10px; height:10px;
+  transform:translateX(-4px);
+  z-index:0;
+  background:#000;border-radius: 100%;
+}
+#ABOUT #timeline .date{
+  color: white;
+  background: #000;
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 15px -50px 0 20%;
+  transform: translateX(-50%);
+  font-weight: 200;
+  vertical-align: top;
+  float: left;
+  width: auto;
+}
+#ABOUT #timeline .story{
+  display: block;
+  width: auto;
+  padding: 10px 0;
+  margin: 10px 0 0 30%;
+}
+#ABOUT #timeline .title{
+  color:#000;
+  letter-spacing: 5px;
+  margin: 10px 20px;
+}
+#ABOUT #timeline .story>p{
+  color:#999;
+  margin: 10px 20px;
+  letter-spacing: 2px;
+  font:300 14px 'Roboto';
+}
+#ABOUT #timeline .final{
+  position:relative;
+}
+#ABOUT #timeline .final>.story{
+  position:absolute;
+  margin:80px 0 0 10%;
+}
+#ABOUT #clients{margin:50px auto 20z0px auto;}
+#ABOUT #clients.load{transform:translateX(20px);}
+#ABOUT #clients .client{
+  display:inline-block;
+  padding:10px 10px;
+  backgroundz:#233e61;
+  border:solid 3px #3c7ed5;
+  border-radius: 3px;
+  color:#3c7ed5;
+  font:500 20px 'Roboto';
+  letter-spacing: 3px;
+  margin:10px;
+}
+#ABOUT .quote{
+  margin:100px auto 0 auto;
+  color:#999;
+}
+#ABOUT .button{
+  position:relative;
+  font:400 16px 'roboto';
+  color:#4987ff;
+  display:inline-block;
+  text-decoration: none;
+  cursor:pointer;
+  padding:10px 40px;
+  margin:30px 30px;
+  overflow:hidden;
+  transition:background-color .5s .3s;
+}
+#ABOUT .button.hireMe{border:solid 2px #4987ff;}
+#ABOUT .button>span{position:relative;transition:color .5s .3s,transform .5s .3s;letter-spacing: 5px;}
+#ABOUT .button.hireMe:hover>span{color:#FFF;}
+#ABOUT .button.hireMe:before{
+  content:'';position:absolute;top:-50px;left:-50px;width:100px;height:100px;border-radius:100%;background:#4987ff;
+  transform:scale(0);transition:transform 1s;
+}
+#ABOUT .button.hireMe:hover:before{
+  transform:scale(5);
+}
+#ABOUT a.button{margin-bottom:200px;}
+#ABOUT a.button:hover{background-color:#EEE;}

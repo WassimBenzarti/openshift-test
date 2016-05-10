@@ -1,0 +1,184 @@
+#HEAD{
+  height:20%;
+  text-align: center;
+  color:#FFF;
+  background-size:cover;
+  background-position:center;
+  background-repeat: no-repeat;
+  position:relative;
+}
+#HEAD .logo{
+  width:100%;
+  height:100%;
+  margin:0 auto;
+  display:block;
+  background: url('../inc/logo/LogoArchiB.png') no-repeat 49% center/contain;
+  animation:animInitialHeader 1s .7s cubic-bezier(0.7,0,0.3,1) forwards;
+}
+.loading #HEAD .logo{animation:none;}
+body{background:#EEE;color:#888}
+#CONTACT{position:fixed;}
+#CONTACT form{
+  position:absolute;
+  width:100%;
+  height:75%;
+}
+#CONTACT form>div{
+  position:absolute;
+  left:0;
+  width:100%;
+  min-height:100px;
+  top:0;
+  opacity:0;
+  transform:scale(.5) translateY(-100%);
+  transition:opacity .5s,transform .5s,top .5s;
+}
+#CONTACT #phrase h2{
+  font:400 30px 'Roboto';
+  color:#000;
+  text-align: center;
+}
+#CONTACT #phrase.error h2{
+  color:#ff5353
+}
+#CONTACT #phrase.error + #question>.textbox:after{background:red}
+#CONTACT form>div.prev{
+  top:0;
+  transform:scale(.5);
+  opacity:.5;
+}
+#CONTACT form>div.now{
+  top:40%;
+  transform:translateY(-50%);
+  cursor:text;
+  opacity:1;
+}
+#CONTACT form>div.next{
+  top:100%;
+  transform:translate(0,-100%) scale(.5);
+  opacity:.5;
+}
+#CONTACT form>div.next ~ div{
+  position:absolute;
+  left:0;
+  width:100%;
+  top:100%;
+  opacity:0;
+  transform:scale(.5);
+  transition:opacity .5s,transform .5s,top .5s;
+}
+#CONTACT #question.now input,#CONTACT #question.now textarea{cursor:text;opacity:1;}
+
+#CONTACT #question .textbox{
+  position:relative;
+  width:90%;margin:auto auto;
+
+}
+#CONTACT form>div h2{
+  position:absolute; top:50%;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  transform:translate(30px,-50%);
+  margin:0;
+  pointer-events: none;
+  font:800 40px 'Roboto';
+  transition:transform .5s;
+}
+#CONTACT #question.now .textbox.focused>h2{
+  transform:translate(20px,-200%) scale(0.7);
+}
+#CONTACT #question .textbox:after{content:'';position:absolute;bottom:0;left:0;width:100%;height:5px;background:#555;
+  transition:transform .5s ease-out;
+  transform-origin: left;
+  transform:scaleX(0);
+}
+#CONTACT #question.now .textbox.focused:after{transform:scaleX(1)}
+#CONTACT #question .textbox:before{content:'';position:absolute;bottom:0;left:0;width:100%;height:5px;background:#AAA;}
+#CONTACT #question input,#CONTACT #question textarea{
+  width:95%;
+  height:100%;
+  margin:0;
+  padding:30px;
+  color:#000;
+  font:100 20px 'Roboto';
+  background:none;
+  border:none;
+  opacity:0; cursor:pointer;
+  transition:opacity .5s;
+}
+#CONTACT #question.now input{font-size:60px}
+#CONTACT #question.now textarea{height:80%;padding-top:0;font-size:30px}
+#CONTACT #button>input{
+  border:none; background:none;
+  font:400 40px 'Roboto'; letter-spacing: 5px; text-transform: uppercase;
+  color:#000; border-bottom:solid 5px #888;
+  position:absolute;
+  width:50% !important;
+  left:50% !important;
+  transform-origin: center center;
+  transform:translate(-50%,0) scale(.9);
+  padding:40px 10px;
+  cursor:pointer;
+  opacity:1;
+  transition:letter-spacing .5s,opacity .3s,transform .4s linear;
+}
+#CONTACT #button>input:hover{opacity:1;letter-spacing: 15px;border-color:#6ab3ff}
+#CONTACT #button.next{opacity:1;}
+#CONTACT #button.loading>input,#CONTACT #button.success>input,#CONTACT #button.fail>input{
+  transform:translate(-50%,0) scale(0); opacity:0;
+}
+#CONTACT #button svg{
+  pointer-events: none;
+  position:absolute;left:50%;
+  stroke-dasharray:1000;
+  stroke-dashoffset:1000;
+  transform:translate3d(-50%,0,0) scale(0);
+  transition:transform .5s linear;
+}
+
+#CONTACT #button.loading svg,#CONTACT #button.success svg,#CONTACT #button.fail svg{
+  transform:translate3d(-50%,0,0) scale(1.5);
+}
+#CONTACT #button.loading circle{
+  stroke-linecap:round;
+  transform-origin: center center;
+  stroke-dashoffset: 0;
+  animation: dashCircle 1.5s ease-in-out infinite,rotateCircle 2s linear infinite,transform 1s;
+}
+#CONTACT #button.success polyline{
+  stroke-linecap:round;
+  stroke-dashoffset:0;
+  transition:stroke-dashoffset 5s;
+}
+#CONTACT #button.fail path{
+  stroke-linecap:round;
+  stroke-dashoffset:0;
+  transition:stroke-dashoffset 5s;
+}
+#CONTACT #pageDot{
+  position:fixed;
+  left:50%;
+  top:50%;
+  height:50px;
+  width:300px;
+  text-align: center;
+  transform:translate(-50%,150px);
+}
+#CONTACT #pageDot>span{
+  display:inline-block;
+  background:transparent;
+  border-radius:100%;
+  border:solid 1px #999;
+  margin:0 15px; cursor:pointer;
+  width:15px;height:15px;
+  transition:background .3s;
+}
+#CONTACT #pageDot>span.selected{background:#555}
+#CONTACT #contactInfo{
+  position:fixed;
+  bottom :20px;
+  left:20px;
+}
+#footer{
+  display:none;
+}

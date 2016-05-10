@@ -1,0 +1,376 @@
+@import url(https://fonts.googleapis.com/css?family=Quicksand:400,300,700);
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,300,400,700);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+@font-face {
+  font-family: 'fontello';
+  src: url('/font/fontello.eot?33710346');
+  src: url('/font/fontello.eot?33710346#iefix') format('embedded-opentype'),
+       url('/font/fontello.woff?33710346') format('woff'),
+       url('/font/fontello.ttf?33710346') format('truetype'),
+       url('/font/fontello.svg?33710346#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+*{outline:none;}
+html, body{min-height:100%;height:100%}
+body{padding:0;margin:0;overflow-x:hidden;color:#7D7D7D;font: 200 20px 'Roboto';}
+.noScroll{
+  position:fixed !important;
+  overflow:hidden !important;
+}
+.onScroll.Sfade{
+  transition: transform 1s,opacity 1s;
+  transform: none;opacity:1;
+}
+.onScroll.Sfade.load{
+  transform:translateY(100px); opacity:0;
+}
+@keyframes animInitialHeader {
+	from {
+		opacity: 0;
+		transform: translate(0,50px) translateZ(0px);
+	}
+}
+@keyframes animLoadedLogo {
+	to {
+		transform: translate(0,150%) scale(0.5,0.5) translateZ(0);
+    opacity:1;
+	}
+}
+@keyframes animLoadedLoader {
+	to {
+		opacity: 0;
+		transform: translate(0,-100%) scale(0.3,0.3) translateZ(0px);
+	}
+}
+@keyframes animLoadedContent {
+	from{
+		opacity:0;
+		transform: translateY(50%) scale(1.2,1.2) translateZ(0px);
+	}
+  to{
+    opacity:1;
+		transform: none;
+  }
+}
+@keyframes rippleAnimation{
+  70% {
+    opacity:.5;
+    transform:scale(2);
+  }
+	100%{opacity:0;transform:scale(2);}
+}
+@keyframes rotateCircle {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes dashCircle {
+  0% {
+    stroke-dasharray: 1,200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89,200;
+    stroke-dashoffset: -35px;
+  }
+  100% {
+    stroke-dasharray: 89,200;
+    stroke-dashoffset: -124px;
+  }
+}
+#loadingHeader{opacity:1;
+  height:100%;
+  position:fixed;
+  overflow:hidden;
+  width:100%;
+  background:#EEE;
+  z-index:1000;
+  transform:translateY(-100%) translateZ(0px);
+  transition:transform 1s .5s cubic-bezier(0.7,0,0.3,1);
+}
+body.loading #loadingHeader{
+  transform:translateY(0);will-change:transform;
+	transition:transform 1s cubic-bezier(0.7,0,0.3,1);
+}
+#loadingHeader .logo{
+  background:url('../inc/logo/LogoArchiB.png') no-repeat 49% center/contain;
+  height:60%;
+  animation: animLoadedLogo 1s .5s cubic-bezier(0.7,0,0.3,1) both;
+}
+body.loading #loadingHeader .logo{animation: animInitialHeader 1s cubic-bezier(0.7,0,0.3,1) both;}
+#loadingHeader canvas{
+  margin:auto auto;
+  display:block;
+	-webkit-transform: translateZ(0px);
+  animation: animLoadedLoader 0.5s cubic-bezier(0.7,0,0.3,1) forwards;
+}
+body.loading #loadingHeader canvas{animation: animInitialHeader 1s cubic-bezier(0.7,0,0.3,1) both;}
+#mainContainer{
+  height:100%;
+  width:100%;
+  display:inline-block;
+}
+section{
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  min-width:350px;
+  display: block;
+  position:relative;
+  margin:auto;
+}
+.scrolling {pointer-events: none;}
+
+
+#footer{
+  display: table;
+  background: #1B1B1B;
+  width: 100%;
+  text-align: center;
+  height: 50%;
+}
+#footer>div{
+  display:table-cell;
+  vertical-align: middle;
+}
+
+    /*////////////////////////////////////////////////////////////*/
+    /*/////////////////////// THEATER ////////////////////////////*/
+    /*////////////////////////////////////////////////////////////*/
+#THEATER{
+  z-index:1000;
+  position:fixed;
+  top:0;left:0;
+  width:100%;
+  height:100%;
+  overflow-y: scroll;
+}
+#THEATER.move>.img{
+  transform:scale(1.2);
+
+}
+#THEATER.move #container{
+  transform:translateY(50px);
+  opacity:0;
+
+}
+#TOVERLAY{
+  position:fixed;top:50%;left:50%;width:50px;height:50px;margin:-50px 0 0 -50px;border-radius:100%;background:#000;opacity:.8;z-index: 999;
+  transition:transform .2s 0s;
+  transform-origin: center center;
+  transform:scale(0);
+}
+#TOVERLAY.shown{transform:scale(50);opacity:.85;transition:transform .8s .2s;}
+#THEATER:before{
+  position:absolute;
+  content:'X';
+  font:100 50px 'Roboto';
+  width:50px; height:50px;
+  top:50px; right:50px;
+  text-align:center;
+  cursor:pointer;
+  transform:scaleX(1.2);
+  transition:color .3s linear;
+  color:#FFF;
+}
+#THEATER>.img{
+  margin:0 auto;
+  display: block;
+  position:relative;
+  background-position:center center;
+  background-repeat:no-repeat;
+  background-size:cover;
+  box-shadow: 0 10px 50px -10px #000;
+  transform-origin: center center;
+  transition:transform .6s ease;
+}
+#THEATER.move>.img>*{opacity:0}
+#THEATER .img.gradient:before{
+  content:'';
+  position:absolute;
+  bottom:0; left:0;
+  width:100%; height:200px;
+  opacity:0;
+  background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(0,0,0,1) 100%);
+  background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(0,0,0,1) 100%);
+  background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(0,0,0,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#000000',GradientType=0 );
+  transition:opacity .3s linear;
+  z-index:0;
+}
+#THEATER.move .img.gradient:hover:before{opacity:0}
+#THEATER .img.gradient:hover:before{opacity:0}
+#THEATER .img>.preload{
+  width:100%;
+  height:100%;
+  display:block;
+  background-size:cover;
+  background-position: center center;
+  background-repeat:no-repeat;
+}
+
+#THEATER #container{
+  margin:-50px auto 50px auto;
+  padding:0 0 20px 0;
+  position: relative;
+  z-index: -1;
+  width:100%;
+  overflow: hidden;
+  min-height:600px;
+  max-width:900px;
+  transition:transform .5s,opacity .5s linear;
+}
+#THEATER .title{
+  color:#222;
+  text-transform: uppercase;
+  font: 900 20px 'Roboto';
+  letter-spacing: 10px;
+  text-align: center;
+  padding:100px 0 100px 0;
+  margin:0 auto 10px auto;
+  background-size:cover;
+  background-position: center center;
+  background-repeat:no-repeat;
+}
+#THEATER .status{
+  clear:both;
+  padding: 30px 30px;
+  letter-spacing: 1px;
+  font:400 15px 'Roboto';
+  width: 100%;
+  max-width: 420px;
+  display: inline-block;
+  max-height: 400px;
+  float:left;
+  margin:5px 5px 5px 0;
+  color:#222;
+  background:#EEE;
+  overflow-y:auto;
+}
+#THEATER .comments{
+  margin:5px 0 0 5px;
+  float:right;
+  text-align: center;
+  width: 100%;
+  max-width: 380px;
+  height:400px;
+  padding:10px 10px 10px 10px;
+  max-height:400px;
+  overflow-y:auto;
+  overflow-x: visible;
+  background:#EEE;
+}
+#THEATER .comments>p{
+  font:200 20px 'Roboto';
+  display:block;
+  margin:0;
+  vertical-align: middle;
+  text-align: center;
+  line-height: 300px
+}
+#THEATER .comments>.brick{
+  position:relative;
+  width:95%;
+  text-align: left;
+  cursor:pointer;
+  padding:0 0 10px 0;
+  height:auto;
+  margin:10px auto;
+  overflow:hidden;
+}
+#THEATER .comments>.brick>.pic{
+  width:50px; height:50px;
+  margin:10px;
+  display:inline-block;
+  float:left;
+  background-size:contain;
+  border-radius:100%;
+}
+#THEATER .comments>.brick>.date{
+  font:100 14px sans-serif;
+  margin:5px 0;
+}
+#THEATER .comments>.brick>.name{
+  color: black;
+  display:inline-block;
+  margin: 0;
+  font: 500 14px 'Roboto';
+}
+#THEATER .comments>.brick>.message{
+  font:300 16px 'Roboto';
+  margin: 0 0 0 70px;
+}
+#THEATER .comments>.nextBtn{
+  background:#FFF;
+  cursor:pointer;
+  display:inline-block;
+  overflow: hidden;
+  text-transform: uppercase;
+  font:400 15px 'Roboto';
+  color:#3784df;
+  letter-spacing: 1px;
+  position:relative;
+  padding:10px 20px;
+  border-radius: 3px;
+  box-shadow: 0 3px 5px rgba(0,0,0,.2);
+  margin: 5px 0;
+  transition:box-shadow .5s;
+}
+#THEATER .comments>.nextBtn:hover{
+  box-shadow: 0 5px 15px rgba(0,0,0,.5);
+}
+#THEATER .comments>.nextBtn>span{
+  background:#85abff;
+}
+#THEATER .comments>.nextBtn>span.show{
+  animation:rippleAnimation 1s ease-out;
+}
+#THEATER #container>form{
+  display: block;
+  position:relative;
+  margin: 0 0 5px 5px;
+  float: right;
+  width: 100%;
+  max-width:400px;
+  clear: both;
+}
+#THEATER #container>form:after{
+  content:''; position:absolute;left:0; width:0; height:3px; bottom:0; background:#417cff;
+  transition:width .5s ease;
+}
+#THEATER #container>form.active:after{
+  width:100%;
+}
+#THEATER #container>form>input{
+  font:400 20px 'Roboto';
+  background:#FFF;
+  color:#444;
+  width:90%;
+  padding:10px 5%;
+  border:none;
+  border-bottom:solid 3px #FFF;
+}
+/*/////////////////////CONTACT///////////////////////*/
+#contactInfo{
+  color:#555;
+}
+#contactInfo b{
+  display:inline-block;text-transform:uppercase;font:900 15px 'Quicksand';
+}
+#contactInfo p{
+  font-weight:300;margin:0 10px; display:inline-block;font:normal 15px 'Quicksand';
+}
+#contactInfo a{
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font:normal 15px 'Quicksand';
+  font-size:30px;
+  text-decoration:none;
+  font-weight:normal;
+  color:#555;
+}
+#contactInfo a:hover{color:#000}
+#contactInfo a>span{margin:0 5px}

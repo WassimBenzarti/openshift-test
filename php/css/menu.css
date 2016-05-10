@@ -1,0 +1,154 @@
+#menu{
+  position:fixed;
+  z-index:999;
+  width:60px;height:60px;
+
+}
+.loading #menu:before,.loading .icon span#sandwich{
+  transform:translate3d(0,50px,0);
+  transition:transform 1s 1s ease-out;
+}
+#menu:before{
+  content:'';
+  position:fixed;
+  background:#000;
+  width:inherit; height:inherit;
+  border-radius: 100%;
+  top:30px ; left:30px;
+  opacity:.9;
+  transition:transform .5s ease-out;
+}
+/*#menu.open:before {width:300vh; height:300vh;top:-100vh; left:-70vh;}*/
+#menu.open:before{transform:scale(70);transition:transform .5s ease-in;}
+#menu nav{
+  position:fixed;
+  display:block;
+  overflow:hidden;
+  top:0;
+  left:0;
+  width:0;
+  height:0;
+  opacity:0;
+  z-index:900;
+  transition:opacity .3s,width 0s .3s,height 0s .3s;
+}
+#menu.open nav{opacity:1;transition:opacity .3s .3s;width:100%;height:100%;}
+#menu nav>h1{
+  font:100 50px 'Quicksand';
+  text-align: center;
+  color:#FFF;
+  position:relative;
+  margin:5vh auto;
+}
+#menu nav ul{
+  margin:auto auto;
+  list-style: none;
+  padding:0;
+  display:table;
+}
+#menu nav li{
+  text-align: center;
+  font-size:4vh;
+  text-transform: uppercase;
+  overflow:hidden;
+  padding:10px 40px;
+  font-weight:bold;
+  margin:2vh auto;
+  cursor:pointer;
+  transform:translateY(20px);
+  transition:letter-spacing .3s ease;
+}
+#menu nav li:hover{letter-spacing: 5px;}
+#menu nav li>.ripple.show{
+  animation:rippleAnimation 1s ease-out;
+  background:#000;
+  z-index:-1;
+}
+#menu nav li>span{
+  content:''; position:absolute; top:0;left:0;width:0;height:100%;
+  background:#EEE;
+  z-index:-1;
+  transition:width .2s ease;
+}
+#menu nav li:hover>span{
+  width:100%;
+}
+#menu nav li a{
+  text-decoration: none;
+  color:#777;
+  transition:color 0s .1s;
+}
+#menu nav li:hover a{color:#111;}
+#menu .icon{
+  position:absolute;
+  display:block;
+  width:60px; height:60px;
+  top: 30px;
+  left: 30px;
+  border-radius: 100%;
+  z-index:991;
+  overflow:hidden;
+  cursor:pointer;
+  transform:none;
+}
+#menu .icon .ripple.show{
+  animation:rippleAnimation 1s ease-out ;
+  background:#FFF;
+
+}
+.icon span#sandwich {
+  display: block;
+  position: absolute;
+  width:28px;
+  top: 28px;
+  left: 16px;
+  right: 12px;
+  height: 4px;
+  background: #FFF;
+  transform:none;
+}
+.icon span#sandwich {
+  transition: background 0s .3s,transform 1.5s 1s;
+}
+.icon span#sandwich::before,
+.icon span#sandwich::after {
+  position: absolute;
+  display: block;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #FFF;
+  content: "";
+  transition-duration: .3s, .3s;
+  transition-delay: .3s , 0s;
+  transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+}
+.icon span#sandwich::before {
+  transition-property: top, transform;
+  top: -8px;
+}
+.icon span#sandwich::after {
+  transition-property: bottom, transform;
+  bottom: -8px;
+}
+/* active state, i.e. menu open */
+#menu.open .icon {
+  background-color: transparent;
+}
+#menu.open .icon span#sandwich {
+  background: none;
+}
+#menu.open .icon span#sandwich::before {
+  top: 0;
+  transform: rotate(45deg);
+
+}
+#menu.open .icon span#sandwich::after {
+  bottom: 0;
+  transform: rotate(-45deg);
+}
+
+#menu.open .icon span#sandwich::before,
+#menu.open .icon span#sandwich::after {
+  transition-delay: 0s, .3s;
+}
