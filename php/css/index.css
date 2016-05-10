@@ -28,7 +28,7 @@ section h1{
 }
 .section1 .logo{
   height:30%;
-  background:url('../inc/logo/LogoArchi.png') no-repeat 49% center/contain;
+  background:url('/src/inc/logo/LogoArchi.png') no-repeat 49% center/contain;
   position: relative;
   z-index: 1;
   transition:transform .5s 1s ease,opacity .5s 1s;
@@ -51,7 +51,7 @@ body.loading .section1 .logo{transform:translateY(100px) scale(1.5);opacity:0}
   opacity: .8;
 }
 .section1 center .titleLogo{
-  background:url('../inc/logo/title.png') no-repeat center 45%/50%;
+  background:url('/src/inc/logo/title.png') no-repeat center 45%/50%;
   position:absolute;
   z-index:1;
   width:100%;
@@ -71,7 +71,7 @@ body.loading .section1 .logo{transform:translateY(100px) scale(1.5);opacity:0}
 }
 .section2{
   height:340px;
-  background:#1B1B1B url('../inc/logo/cover.png') no-repeat center /auto 100%;
+  background:#1B1B1B url('/src/inc/logo/cover.png') no-repeat center /auto 100%;
 }
 .section2 h2{
   color:#999;
@@ -276,13 +276,13 @@ body.loading .section1 .logo{transform:translateY(100px) scale(1.5);opacity:0}
   width:100%;
   height:100%;
   display:block;
-  background:url(/inc/logo/play.png) center center no-repeat no-repeat;
+  background:url(/src/inc/logo/play.png) center center no-repeat no-repeat;
   background-size:80px;
   opacity:0;
   transition:opacity .2s linear;
 }
 .section4>#musicList>.item.playing:after{
-  background-image:url(/inc/logo/pause.png);
+  background-image:url(/src/inc/logo/pause.png);
 }
 .section4>#musicList>.item:hover:after{opacity:1}
 .section4>#musicList>.item>span#progressBar{
@@ -519,98 +519,3 @@ body.loading .section1 .logo{transform:translateY(100px) scale(1.5);opacity:0}
   left:100%;
   transition:width .3s cubic-bezier(.23,.89,.62,1), left .3s .4s cubic-bezier(.23,.89,.62,1);
 }
-
-/***************************************************
-.PROJECTS>#projectList>.item .content{
-  display: table-cell;
-  vertical-align: middle;
-  position:relative;
-  margin: auto auto;
-  flex-direction: column;
-  text-align: center;
-  box-shadow:inset 0 0 0 20px #000;
-  transition:box-shadow .3s .1s ease;
-}
-.PROJECTS>#projectList>.item .content:hover{box-shadow:inset 0 0 0 40px #000}
-.PROJECTS>#projectList>.item .title{
-  display:block;
-  width:100%;
-  position:relative;
-  margin:50px auto auto auto;
-  letter-spacing: normal;
-  color:#FFF;
-  font:100 45px 'Roboto',sans-serif;
-  transition:transform .4s;
-  -webkit-backface-visibility: hidden;
-}
-.PROJECTS>#projectList>.item:hover .title{transform:translateY(-20px) translateZ(0)}
-.PROJECTS>#projectList>.item .subtitle{
-  display:block;
-  width:100%;
-  position:relative;
-  margin:auto;
-  color:#FFF;
-  text-transform: uppercase;
-  font:400 15px 'Roboto',sans-serif;
-  transition:transform .2s;
-  -webkit-backface-visibility: hidden;
-}
-.PROJECTS>#projectList>.item:hover .subtitle{transform:translateY(-10px) translateZ(0)}
-.PROJECTS>#projectList>.item a.seeMore{
-  text-decoration: none;
-  display:inline-block;
-  font:300 19px 'Roboto';
-  color:#000;
-  position:relative;
-  margin:auto auto;
-  background:#FFF;
-  white-space: nowrap;
-  padding:5px 10px;
-  opacity:0;
-  transition:transform .4s,opacity .4s;
-  transform:translateZ(0) scale(0.95);
-}
-.PROJECTS>#projectList>.item:hover a.seeMore{transform:translateY(10px);opacity:1}
-.PROJECTS>#projectList>.item a.seeMore:hover{transform:translateY(10px) translateZ(0);}
-.PROJECTS>#projectList>.item .cover{
-  position:absolute;
-  background:#FFF no-repeat no-repeat center center/cover;
-}
-.PROJECTS>#projectList>.item .video-wrapper{
-  pointer-events: none;
-  position:absolute;
-  z-index:0;
-	padding-bottom:56.25%;
-	height:0;
-	overflow:hidden;
-  width:100%;
-
-}
-.PROJECTS>#projectList>.item .video-wrapper:after{
-  content:'';
-  top:0; left:0;
-  width:100% ; height:100%;
-  position:absolute;
-  background:#000;
-  opacity:0.7;
-  z-index:1;
-}
-.PROJECTS>#projectList>.item .video-wrapper>span{
-  top:0; left:0;
-  width:100% ; height:100%;
-  position:absolute;
-  background-size:cover;
-  background-position:center center;
-  background-repeat:no-repeat;
-  z-index:1;
-  transition:opacity 1s;
-}
-.PROJECTS>#projectList>.item .video-wrapper iframe{
-  position:absolute;
-	top:-50%;
-	left:0;
-	width:100%;
-	height:200%;
-}
-
-*/
