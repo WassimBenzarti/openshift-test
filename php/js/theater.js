@@ -40,10 +40,12 @@
         function cPt(elm){
           return [elm.offset().left+(elm.width()/2),elm.offset().top+(elm.height()/2)];
         }
-        var offX= cPt(self.original)[0] - ($(window).outerHeight()/2) ,
-            offY = cPt(self.original)[1] - ($(window).outerHeight()/2),
+
+        var offScale = Math.max(self.original.width(),self.original.height())/Math.max(self.elm.width(),self.elm.height()),
+            offX= cPt(self.original)[0] - ($(window).outerHeight()/2) ,
+            offY = cPt(self.original)[1] - ($(window).outerHeight()/2);
             //offScale = self.original.width()/self.elm.width(),
-            offScale = Math.max(self.original.width(),self.original.height())/Math.max(self.elm.width(),self.elm.height());
+
         elm.data('data-transform','translate3d('+offX+'px,'+offY+'px,0px) scale('+offScale+')');
         setVendor(elm.get(0),'Transform','translate3d('+offX+'px,'+offY+'px,0px) scale('+offScale+')');
         setTimeout(function(){setVendor(elm.get(0),'Transform','');self.overlay.addClass('shown');},100);
