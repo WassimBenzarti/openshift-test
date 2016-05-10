@@ -2,5 +2,5 @@ Options +MultiViews
 
 AuthType Basic
 AuthName "Password Protected Area"
-AuthUserFile ./.htpasswd
+AuthUserFile php/.htpasswd
 Require valid-user
