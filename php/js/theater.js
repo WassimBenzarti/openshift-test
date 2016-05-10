@@ -87,12 +87,13 @@
   this.close=function(e){
     if(!self.enabled || (typeof e != "undefined" && $(e.target).attr('id')!='THEATER')) return;
     setVendor(self.elm.get(0),'Transform',self.elm.data('data-transform'));
-    self.enabled=false;
+
     self.overlay.removeClass('shown');
     self.original.css({'opacity':1});
     self.tag.addClass('move').delay(500).fadeOut(500,function(){
       $(this).remove();
       self.overlay.remove();
+      self.enabled=false;
       $(document.body).removeClass('noScroll').scrollTop(-parseInt($(document.body).css('top'))).css({top:'',width:''});
       $(window).off('statechange');
       History.Adapter.bind(window,'statechange',History.buildHandler);
