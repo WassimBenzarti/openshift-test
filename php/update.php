@@ -156,7 +156,7 @@ for($i=sizeof($data->data)-1;$i>=0;$i--){
     $res->execute($d);
   }
 }
-$_GET['offset'] = $i+5;
+$_GET['offset'] = (int)$_GET['offset']+5;
 
 }catch(Exception $e){
   echo $e->getMessage();
