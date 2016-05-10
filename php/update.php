@@ -132,7 +132,7 @@ for($i=sizeof($data->data)-1;$i>=0;$i--){
           $image = imagecreatefromgif($filename);
         break;
     }
-    $d['blurry']='/src/files/blurry/'.$d['id'].'.jpg';
+    $d['blurry']='/src/blurry/'.$d['id'].'.jpg';
     //imagefilter($image, IMG_FILTER_GRAYSCALE);
     //imagefilter($image, IMG_FILTER_CONTRAST,-40);
     //imagefilter($image, IMG_FILTER_BRIGHTNESS,30);
