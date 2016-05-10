@@ -19,7 +19,7 @@
 <meta name="msapplication-TileColor" content="#FFFFFF">
 <meta name="msapplication-TileImage" content="/inc/favicon/favicon-144.png">
 <meta name="msapplication-config" content="/inc/favicon/browserconfig.xml">
-<script src="/js/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 <script src="/js/jquery.history.js"></script>
 <script src="/js/jquery.easing.min.js"></script>
 <script src="/js/menu.js"></script>
