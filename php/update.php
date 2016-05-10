@@ -99,13 +99,17 @@ $data = file_get_contents('https://graph.facebook.com/355698711291842/photos/upl
 $data = json_decode($data);
 $res = $db->prepare("INSERT INTO artphotos VALUES(:id,NULL,:name,:width,:height,:images,:color,:link,:created_time,1,0,:blurry,:likes,:comments)");
 try{
-
+  echo "<pre>";
+  var_dump($data->data);
+  echo "</pre>";
 
 for($i=sizeof($data->data)-1;$i>=0;$i--){
   if(in_array($data->data[$i]->id,$ids)){
+    /*
     echo "<br>";
-    echo "ELEMENT $i EXIST = ".$data->data[$i]->id ;
+    echo "ELEMENT $i EXIST = ".$data->data[$i]->id;
     echo "<br>";
+    */
     break;
   }else{
     $d = (array)$data->data[$i];
