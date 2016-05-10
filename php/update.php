@@ -86,7 +86,7 @@ function colorAvg($array){
 if(isset($_GET['reset'])){
   $reset = $db->prepare("DELETE FROM artphotos");
   $reset->execute();
-  var_dump( array_map('unlink', glob("../inc/files/blurry/*")));
+  //var_dump( array_map('unlink', glob("/src/files/blurry/*")));
   die("Reseted");
 }
 //retrive old data
