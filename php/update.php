@@ -86,7 +86,7 @@ function colorAvg($array){
 if(isset($_GET['reset'])){
   $reset = $db->prepare("DELETE FROM artphotos");
   $reset->execute();
-  //var_dump( array_map('unlink', glob("../inc/files/blurry/*")));
+  var_dump( array_map('unlink', glob("../inc/files/blurry/*")));
   die("Reseted");
 }
 //retrive old data
@@ -94,8 +94,8 @@ $old = $db->prepare("SELECT fbid,autoupdate FROM artphotos WHERE autoupdate=1");
 $old->execute();
 $ids = $old->fetchAll(PDO::FETCH_COLUMN,0);
 if(!isset($_GET['offset'])){$_GET['offset']=0;}
-$data = file_get_contents('https://graph.facebook.com/355698711291842/photos/uploaded?limit=5&offset='.$_GET['offset'].'&fields=images,link,name,width,height,created_time,likes.limit(0).summary(true),comments.limit(0).summary(true)&order=reverse_chronological&access_token='.FBTOKEN);
-echo 'https://graph.facebook.com/355698711291842/photos/uploaded?limit=5&offset='.$_GET['offset'].'&fields=images,link,name,width,height,created_time,likes.limit(0).summary(true),comments.limit(0).summary(true)&order=reverse_chronological&access_token='.FBTOKEN;
+$data = file_get_contents('https://graph.facebook.com/225811101085640/photos/uploaded?limit=5&offset='.$_GET['offset'].'&fields=images,link,name,width,height,created_time,likes.limit(0).summary(true),comments.limit(0).summary(true)&order=reverse_chronological&access_token='.FBTOKEN);
+
 $data = json_decode($data);
 $res = $db->prepare("INSERT INTO artphotos VALUES(:id,NULL,:name,:width,:height,:images,:color,:link,:created_time,1,0,:blurry,:likes,:comments)");
 try{
