@@ -1,6 +1,6 @@
 <?php
 require_once("connect.php");
 
-echo SERVERROOTPATH;
+echo SERVERROOTPATH."<br>";
 echo SERVERDATAPATH;
 ?>
