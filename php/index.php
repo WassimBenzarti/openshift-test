@@ -3,5 +3,5 @@
 //echo $_SERVER['DOCUMENT_ROOT'];
 //echo SERVERROOTPATH;
 
-echo (getenv("OPENSHIFT_REPO_DIR")==false) ? $_SERVER['DOCUMENT_ROOT'] : getenv("OPENSHIFT_REPO_DIR");
+echo ;
 ?>

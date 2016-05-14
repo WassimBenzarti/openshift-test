@@ -1,8 +1,8 @@
 <?php
 ignore_user_abort(true);
-define('SERVERROOTPATH',getenv("OPENSHIFT_REPO_DIR")."php" || $_SERVER["DOCUMENT_ROOT"]);
+define('SERVERROOTPATH',(getenv("OPENSHIFT_REPO_DIR")==false) ? $_SERVER['DOCUMENT_ROOT'] : getenv("OPENSHIFT_REPO_DIR")."php");
 
-define('SERVERDATAPATH',getenv("OPENSHIFT_DATA_DIR"));
+define('SERVERDATAPATH',(getenv("OPENSHIFT_DATA_DIR")==false) ? $_SERVER['DOCUMENT_ROOT']."src" : getenv("OPENSHIFT_DATA_DIR"));
 define('SERVERMENUPATH',SERVERROOTPATH."/menu.php");
 define('SERVERFOOTERPATH',SERVERROOTPATH."/footer.php");
 define('SERVERHEADPATH',SERVERROOTPATH."/head.php");
