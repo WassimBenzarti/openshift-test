@@ -5,3 +5,10 @@ Options +MultiViews
   AuthUserFile /var/lib/openshift/572fbab47628e18c7e0000cf/app-root/runtime/repo/php/.htpasswd
   Require valid-user
 </IfDefine>
+<IfDefine DEV>
+  SetEnv OPENSHIFT_REPO_DIR C:/Users/wass1/Documents/openshiftWeb/Repo/
+  SetEnv OPENSHIFT_MYSQL_DB_HOST 127.0.0.1
+  SetEnv OPENSHIFT_MYSQL_DB_PORT 3306
+  SetEnv OPENSHIFT_MYSQL_DB_USERNAME adminpjV2Bj9
+  SetEnv OPENSHIFT_MYSQL_DB_PASSWORD TdeU3Y7mtfQH
+</IfDefine>
