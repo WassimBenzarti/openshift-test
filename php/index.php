@@ -1,7 +1,5 @@
 <?php
-//define('SERVERROOTPATH',);
-//echo $_SERVER['DOCUMENT_ROOT'];
-//echo SERVERROOTPATH;
+require_once("/connect.php");
 
-echo ;
+echo SERVERROOTPATH;
 ?>
