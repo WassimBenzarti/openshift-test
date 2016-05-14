@@ -1,6 +1,7 @@
 Options +MultiViews
-
-AuthType Basic
-AuthName "Password Protected Area"
-AuthUserFile /var/lib/openshift/572fbab47628e18c7e0000cf/app-root/runtime/repo/php/.htpasswd
-Require valid-user
+<IfDefine !DEV>
+  AuthType Basic
+  AuthName "Password Protected Area"
+  AuthUserFile /var/lib/openshift/572fbab47628e18c7e0000cf/app-root/runtime/repo/php/.htpasswd
+  Require valid-user
+</IfDefine>
