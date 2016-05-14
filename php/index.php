@@ -1,5 +1,5 @@
 <?php
-define('SERVERROOTPATH',(empty(getenv("OPENSHIFT_REPO_DIR")))?$_SERVER["DOCUMENT_ROOT"]:getenv("OPENSHIFT_REPO_DIR")."php");
+define('SERVERROOTPATH',(empty(getenv("OPENSHIFT_REPO_DIR")))?$_SERVER["DOCUMENT_ROOT"]:getenv("OPENSHIFT_REPO_DIR")."php1");
 //echo $_SERVER['DOCUMENT_ROOT'];
 echo SERVERROOTPATH;
 ?>
