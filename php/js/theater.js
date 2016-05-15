@@ -12,9 +12,9 @@
   }
   this.open=function(type,d,elm){console.log(d);
     if(self.enabled){return;}
-    elm.css('background-image','url('+elm.data('original')+')');
+    elm.css({'background-image':'url('+elm.data('original')+')'});
     self.elm = elm.clone(true,true);
-    self.original = elm.css('opacity',0);
+    self.original = elm.css({opacity:0});
     elm = self.elm;
     self.init();
     var vWidth=$(window).outerWidth()*0.8;
@@ -52,7 +52,7 @@
             //offX= cPt(self.original)[0] - ($(window).outerWidth()/2) ,
             //offY = cPt(self.original)[1] - ($(window).outerHeight()/2);
             //offScale = self.original.width()/self.elm.width(),
-        var offX = cPt(self.original)[0] - (self.elm.width()*offScale/2) - (($(window).outerWidth()-self.elm.width())/2),
+        var offX = cPt(self.original)[0] - (self.elm.width()*offScale/2) - (($(document.body).outerWidth()-self.elm.width())/2),
             offY = cPt(self.original)[1] - (self.elm.height()*offScale/2) - (($(window).outerHeight()-self.elm.height())/2);
         setVendor(self.elm.get(0),'Transform','translate3d('+offX+'px,'+offY+'px,0px) scale('+offScale+')');
         console.log($(window).outerWidth());
