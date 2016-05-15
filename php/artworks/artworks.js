@@ -19,7 +19,7 @@ function titleAnim(){
 function timeLineAnim(h){
   var elm = $('#counters').children('div.timeLine');
   if(elm.height() < h){
-    elm.height(h);
+    elm.height(h-elm.offset().top);
   }
 }
 function PHPImageLoader(elm){
@@ -107,8 +107,8 @@ function ImageLoader(data,container){
       }
     });
 
-    wrapper.on('visibleEvent',function(){
-      timeLineAnim($(this).offset().top-img.height());
+    wrapper.on('visibleEvent',function(){console.log(this)
+      timeLineAnim($(this).find('.img').offset().top);
     });
 
     container.append(wrapper.data('data',d)).data('scroll',container.height());

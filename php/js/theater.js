@@ -12,7 +12,7 @@
   }
   this.open=function(type,d,elm){console.log(d);
     if(self.enabled){return;}
-    elm.css({'background-image':'url('+elm.data('original')+')'});
+    
     self.elm = elm.clone(true,true);
     self.original = elm.css({opacity:0});
     elm = self.elm;
@@ -55,7 +55,6 @@
         var offX = cPt(self.original)[0] - (self.elm.width()*offScale/2) - (($(document.body).outerWidth()-self.elm.width())/2),
             offY = cPt(self.original)[1] - (self.elm.height()*offScale/2) - (($(window).outerHeight()-self.elm.height())/2);
         setVendor(self.elm.get(0),'Transform','translate3d('+offX+'px,'+offY+'px,0px) scale('+offScale+')');
-        console.log($(window).outerWidth());
         elm.data('data-transform',[offX,offY,offScale]);
         setTimeout(function(){setVendor(elm.get(0),'Transform','');self.overlay.addClass('shown');},100);
         setTimeout(function(){self.tag.removeClass('move')},1000);

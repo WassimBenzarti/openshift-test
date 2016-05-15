@@ -16,7 +16,8 @@ function ImageLoader(data,wrapper){
     a.attr('href',"#"+d['id']);
     a.click(function(e){
       e.preventDefault();
-      Theater.open('itc',$(this).parents('.item').data('data'),$(e.target));
+      $(this).css({'background-image':'url('+$(this).data('original')+')'});
+      Theater.open('itc',$(this).parents('.item').data('data'),$(this));
     });
     d.status = ((d.status == 'NULL')||(typeof d.status == 'undefined'))?'':d.status;
     d.status = (d.status.length > 120 )?d.status.substr(0,120)+'...':d.status;
