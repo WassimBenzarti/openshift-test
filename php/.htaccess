@@ -11,4 +11,8 @@ Options +MultiViews
   SetEnv OPENSHIFT_MYSQL_DB_PORT 3306
   SetEnv OPENSHIFT_MYSQL_DB_USERNAME adminpjV2Bj9
   SetEnv OPENSHIFT_MYSQL_DB_PASSWORD TdeU3Y7mtfQH
+  Options +FollowSymLinks
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^src(.*)$ http://127.0.0.1:8080/src$1 [L,R=301]
 </IfDefine>
