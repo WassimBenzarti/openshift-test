@@ -26,7 +26,7 @@ function ImageLoader(data,wrapper){
     a.css('background-image','url('+a.attr('data-bg')+')');
     a.data('original','url('+d.images[0].source+')');
     (function foo(elm){
-      if(document.readyState === "complete"){/*elm.css('background-image',elm.data('original'))*/}
+      if(document.readyState === "complete"){elm.css('background-image',elm.data('original'))}
       else{setTimeout(foo,10000,elm)}
     })(a);
     var solidColor = $('<span class="color">').css('background-color',d.color);
