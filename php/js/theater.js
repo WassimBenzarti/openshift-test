@@ -4,14 +4,15 @@
   this.enabled = false;
   this.overlay = '';
   this.init=function(){
+    self.tag=$('<div id="THEATER" class="move">').css('top',window.pageYOffset).click(self.close);
     $(document.body).width($(document.body).outerWidth()).css('top',-window.pageYOffset).addClass('noScroll');
-    self.tag=$('<div id="THEATER" class="move">').click(self.close);
+    self.tag.width($(window).outerWidth());
     self.overlay = $('<div id="TOVERLAY">');
     self.enabled = true;
   }
   this.open=function(type,d,elm){console.log(d);
     if(self.enabled){return;}
-    elm.css('background-image',elm.data('original'));
+    elm.css('background-image','url('+elm.data('original')+')');
     self.elm = elm.clone(true,true);
     self.original = elm.css('opacity',0);
     elm = self.elm;
@@ -51,11 +52,11 @@
             //offX= cPt(self.original)[0] - ($(window).outerWidth()/2) ,
             //offY = cPt(self.original)[1] - ($(window).outerHeight()/2);
             //offScale = self.original.width()/self.elm.width(),
-        var offX = cPt(self.original)[0] - (self.elm.width()*offScale/2) - (($(document.body).outerWidth()-self.elm.width())/2),
+        var offX = cPt(self.original)[0] - (self.elm.width()*offScale/2) - (($(window).outerWidth()-self.elm.width())/2),
             offY = cPt(self.original)[1] - (self.elm.height()*offScale/2) - (($(window).outerHeight()-self.elm.height())/2);
         setVendor(self.elm.get(0),'Transform','translate3d('+offX+'px,'+offY+'px,0px) scale('+offScale+')');
         console.log($(window).outerWidth());
-        elm.data('data-transform','translate3d('+offX+'px,'+offY+'px,0px) scale('+offScale+')');
+        elm.data('data-transform',[offX,offY,offScale]);
         setTimeout(function(){setVendor(elm.get(0),'Transform','');self.overlay.addClass('shown');},100);
         setTimeout(function(){self.tag.removeClass('move')},1000);
       }
@@ -96,15 +97,18 @@
   }
   this.close=function(e){
     if(!self.enabled || (typeof e != "undefined" && $(e.target).attr('id')!='THEATER')) return;
-    setVendor(self.elm.get(0),'Transform',self.elm.data('data-transform'));
-
+    var off = self.elm.data('data-transform');
+    setVendor(self.elm.get(0),'Transform','translate3d('+off[0]+'px,'+(off[1]+self.tag.scrollTop())+'px,0px) scale('+off[2]+')');
+    self.tag.css("pointer-events","none");
     self.overlay.removeClass('shown');
+
     self.original.css({'opacity':1});
+    $(document.body).focus().removeClass('noScroll').scrollTop(-parseInt($(document.body).css('top'))).css({top:'',width:''});
     self.tag.addClass('move').delay(500).fadeOut(500,function(){
       $(this).remove();
       self.overlay.remove();
       self.enabled=false;
-      $(document.body).removeClass('noScroll').scrollTop(-parseInt($(document.body).css('top'))).css({top:'',width:''});
+
       $(window).off('statechange');
       History.Adapter.bind(window,'statechange',History.buildHandler);
       if(History.getState().title=="Theater") History.back();

@@ -49,7 +49,7 @@ body.loading #HEAD{animation:none;}
   z-index:0;
   width:100%;
   height:100%;
-  position:absolute;
+  position:relative;
   overflow:hidden;
   background-color:#000;
   background-position:center center;
@@ -76,10 +76,10 @@ body.loading #HEAD{animation:none;}
 	height:200%;
 }
 #PROJECTS article .text{
-  position:relative;
-  display:table;
+  position:absolute;
+  top:50%;
+  transform: translateY(-50%);
   width:100%;
-  height:100%;
   text-align: center;
 }
 
@@ -89,16 +89,14 @@ body.loading #HEAD{animation:none;}
   color:#FFF;
   margin:0;
   vertical-align: bottom;
-  display:table-cell;
   transition:transform .4s;
 }
 #PROJECTS article .sub{
   font:100 20px 'Quicksand';
   font-size:1.5vw;
-  max-width:70%;
+  width:100%;
   height: 33px;
-  padding:20px 0;
-  display:table-row;
+  margin:0;
   text-transform: uppercase;
   letter-spacing: 10px;
   letter-spacing: 1vw;
@@ -117,7 +115,7 @@ body.loading #HEAD{animation:none;}
   letter-spacing:3px;
   transition:transform .4s,opacity .4s;
 }
-#PROJECTS article .text>a:hover{transform: scale(1.1);}
+#PROJECTS article:hover .text>a{transform: scale(1.1);}
 #PROJECTS article .text>a.learnMore{display:none;}
 #PROJECTS article .content{
   position:relative;
@@ -207,11 +205,11 @@ body.loading #HEAD{animation:none;}
 #PROJECTS article.fullscreen .text>a.learnMore{display:inline-block;transform:translateY(-10px) scale(0.95);white-space:nowrap;opacity:0;}
 #PROJECTS article.fullscreen .text{cursor:pointer}
 #PROJECTS article.fullscreen .text .title{transform:translateY(30px)}
-#PROJECTS article.fullscreen .text:hover .title{transform:none;}
+#PROJECTS article.fullscreen:hover .text .title{transform:none;}
 #PROJECTS article.fullscreen .sub{opacity:0;transform:translateY(10px);
 }
-#PROJECTS article.fullscreen .text:hover>.sub{opacity:1;transform: none;transition-delay: .1s;}
-#PROJECTS article.fullscreen .text:hover>a{transition-delay: .1s;opacity:1;transform:none;}
+#PROJECTS article.fullscreen:hover .text>.sub{opacity:1;transform: none;transition-delay: .1s;}
+#PROJECTS article.fullscreen:hover .text>a{transition-delay: .1s;opacity:1;transform:none;}
 
 #PROJECTS article.fullscreen>.content{
   display: none;

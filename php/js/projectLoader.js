@@ -36,7 +36,7 @@ function projectsUI(data){
 
       bg.appendTo(article);
     }
-    var text=$('<div class="text">').height(vHeight);
+    var text=$('<div class="text">');
     if(d.title !== undefined){
       $('<h1 class="title">').html(d.title).appendTo(text);
     }
