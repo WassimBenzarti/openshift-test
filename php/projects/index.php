@@ -10,6 +10,10 @@
   <body class="loading" bgcolor="#1B1B1B">
     <?php require_once(SERVERMENUPATH); ?>
     <div id="mainContainer">
+      <video id="liveBackground" style="display:none" preload="none" muted loop>
+        <source src="/src/Design/projects.webm" type="video/webm">
+        <source src="/src/Design/projects.mp4" type="video/mp4">
+      </video>
       <link rel="stylesheet" href="projects.css">
       <script src="/js/loadingCircle.js"></script>
       <script src="/js/projectLoader.js"></script>

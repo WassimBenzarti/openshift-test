@@ -21,8 +21,8 @@
 
       <section class="section1">
         <video id="liveBackground" style="display:none" preload="none" muted loop>
-          <source src="/src/Design/main-video.webm" type="video/webm">
-          <source src="/src/Design/main-video.mp4" type="video/mp4">
+          <source src="/src/Design/main.mp4" type="video/mp4">
+          <source src="/src/Design/main.webm" type="video/webm">
         </video>
         <div class="logo"></div>
         <center>
