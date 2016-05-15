@@ -6,7 +6,7 @@ function PHPImageLoader(id){
   this.wall.reset({
     gutterX:10,
     gutterY:10,
-    cellH:180,
+    cellH:150,
     onResize:function(elm){this.fitWidth()}
   });
   this.engine = ImageLoader;

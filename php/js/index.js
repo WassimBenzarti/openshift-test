@@ -24,11 +24,20 @@ function ImageLoader(data,wrapper){
     a.children('span').css('background-image','url('+d.blurry+')');
     a.attr('data-bg',d.images[d.images.length-1].source);
     a.css('background-image','url('+a.attr('data-bg')+')');
-    a.data('original','url('+d.images[0].source+')');
-    (function foo(elm){
-      if(document.readyState === "complete"){elm.css('background-image',elm.data('original'))}
-      else{setTimeout(foo,10000,elm)}
-    })(a);
+    a.data('original',d.images[0].source);
+    (function foo(elm,v){
+      if(document.readyState === "complete" && v.readyState === 4){console.log('done');
+
+      var p = new Image();
+      p.src = elm.data('original');
+      $(p).data('elm',elm)
+      p.onload = function(){
+        $(this).data('elm').css('background-image','url('+elm.data('original')+')');
+        console.log('done loaded');
+      }
+    }
+      else{setTimeout(foo,10000,elm,v)}
+    })(a,$('#liveBackground').get(0));
     var solidColor = $('<span class="color">').css('background-color',d.color);
     var div = $('<div class="item onScroll load">').append(solidColor).append(a).data('data',d);
     div.attr('data-status',d.status);
