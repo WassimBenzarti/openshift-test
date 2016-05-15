@@ -1,5 +1,5 @@
 Options +MultiViews
-Header set Access-Control-Allow-Origin "http://127.0.0.1:80/"
+Header set Access-Control-Allow-Origin "*"
 <IfDefine !DEV>
   AuthType Basic
   AuthName "Password Protected Area"
