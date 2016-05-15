@@ -39,8 +39,9 @@
         function cPt(elm){
           return [elm.offset().left+(elm.width()/2),elm.offset().top+(elm.height()/2)];
         }
-        var elmRatio = parseFloat(self.original.width)/parseFloat(self.original.height);
+        var elmRatio = parseFloat(self.original.width())/parseFloat(self.original.height());
         var offScale = 0;
+
         if(ratio > elmRatio){
           offScale = self.original.height()/self.elm.height();
         }else{
@@ -49,15 +50,12 @@
             //offX= cPt(self.original)[0] - ($(window).outerWidth()/2) ,
             //offY = cPt(self.original)[1] - ($(window).outerHeight()/2);
             //offScale = self.original.width()/self.elm.width(),
-        var offX = cPt(self.original)[0] - (self.elm.width()*offScale/2) - (self.elm.offset().left),
-            offY = cPt(self.original)[1] - (self.elm.height()*offScale/2) - (self.elm.offset().top);
-
-        console.log(cPt(self.original)[0],(self.elm.width()),self.elm.offset());
-
+        var offX = cPt(self.original)[0] - (self.elm.width()*offScale/2) - (($(window).outerWidth()-self.elm.width())/2),
+            offY = cPt(self.original)[1] - (self.elm.height()*offScale/2) - (($(window).outerHeight()-self.elm.height())/2);
         setVendor(self.elm.get(0),'Transform','translate3d('+offX+'px,'+offY+'px,0px) scale('+offScale+')');
 
         elm.data('data-transform','translate3d('+offX+'px,'+offY+'px,0px) scale('+offScale+')');
-        //setTimeout(function(){setVendor(elm.get(0),'Transform','');self.overlay.addClass('shown');},100);
+        setTimeout(function(){setVendor(elm.get(0),'Transform','');self.overlay.addClass('shown');},100);
         setTimeout(function(){self.tag.removeClass('move')},1000);
       }
       self.tag.append(elm);
