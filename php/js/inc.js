@@ -290,7 +290,7 @@ function likeImage(e){
   var elm = $(e.target);
   var id=elm.data('id');
 
-  $('.img[href=#'+id+']').each(function(elm){
+  $('.img[href="#'+id+'"]').each(function(elm){
     elm = $(this).children('.likeBtn');
     if(elm.toggleClass('liked').hasClass('liked')){
       elm.attr('data-likes',parseInt(elm.attr('data-likes'))+1);

@@ -11,7 +11,7 @@
     <?php require_once(SERVERMENUPATH); ?>
     <div id="mainContainer">
       <script>
-        var icons = ['<?php echo addslashes(file_get_contents(SERVERDATAPATH."/inc/logo/icons/like1.svg"))."','". addslashes(file_get_contents(SERVERDATAPATH."/inc/logo/icons/comment.svg")); ?>'];
+        var icons = [<?php $v = json_encode(file_get_contents(SERVERDATAPATH."/inc/logo/icons/like1.svg"));echo $v; ?>,<?php $v=json_encode(file_get_contents(SERVERDATAPATH."/inc/logo/icons/comment.svg"));echo $v; ?>];
       </script>
       <link rel="stylesheet" href="artworks.css">
       <script src="/js/loadingCircle.js"></script>

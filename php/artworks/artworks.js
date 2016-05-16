@@ -97,8 +97,8 @@ function ImageLoader(data,container){
       img.width(Math.min(vWidth*75/100,vHeight)).height(Math.min(vWidth*75/100,vHeight));
     }
 
-    var likeBtn = $('<span class="likeBtn" title="like">').append(svgLike).attr('data-likes',d.likes).data('id',d.id).addClass(cookieLiked(d.id)).appendTo(img);
-    var commentBtn = $('<span class="commentBtn" title="comment">').append(svgComment).attr('data-comments',d.comments).click(function(){
+    var likeBtn = $('<span class="likeBtn" title="like">').append(icons[0]).attr('data-likes',d.likes).data('id',d.id).addClass(cookieLiked(d.id)).appendTo(img);
+    var commentBtn = $('<span class="commentBtn" title="comment">').append(icons[1]).attr('data-comments',d.comments).click(function(){
         $(this).parents('.img').trigger('click');var t = $('#THEATER');t.animate({scrollTop:t.find('form').offset().top+t.find('form').height()-$(window).outerHeight()});
       }).appendTo(img);
     likeBtn.click(likeImage);
