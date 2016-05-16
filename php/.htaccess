@@ -12,6 +12,7 @@ Header set Access-Control-Allow-Origin "*"
 
 <IfDefine DEV>
   SetEnv OPENSHIFT_REPO_DIR C:/Users/wass1/Documents/openshiftWeb/Repo/
+  SetEnv OPENSHIFT_DATA_DIR http://127.0.0.1:8080/src/
   SetEnv OPENSHIFT_MYSQL_DB_HOST 127.0.0.1
   SetEnv OPENSHIFT_MYSQL_DB_PORT 3306
   SetEnv OPENSHIFT_MYSQL_DB_USERNAME adminpjV2Bj9

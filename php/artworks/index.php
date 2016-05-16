@@ -10,6 +10,9 @@
   <body class="loading" bgcolor="#1B1B1B">
     <?php require_once(SERVERMENUPATH); ?>
     <div id="mainContainer">
+      <script>
+        var icons = ['<?php echo addslashes(file_get_contents(SERVERDATAPATH."/inc/logo/icons/like1.svg"))."','". addslashes(file_get_contents(SERVERDATAPATH."/inc/logo/icons/comment.svg")); ?>'];
+      </script>
       <link rel="stylesheet" href="artworks.css">
       <script src="/js/loadingCircle.js"></script>
       <script src="artworks.js"></script>

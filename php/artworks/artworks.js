@@ -1,10 +1,9 @@
 
 
 var title;
-var svgLike = $.load('/src/inc/logo/icons/like1.svg');
-var svgComment = $.load('/src/inc/logo/icons/comment.svg');
 $(window).one('doLoadingComplete',function(){
   titleAnim();
+
 })
 $(function(){
   $('#counters').data('scroll',$(window).outerHeight()/2);
@@ -24,6 +23,7 @@ function timeLineAnim(h){
     elm.height(h-elm.offset().top);
   }
 }
+
 function PHPImageLoader(elm){
   var extra='';
   if(elm.data('pg')==0){extra='&count&like&comment'}
