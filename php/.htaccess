@@ -2,14 +2,15 @@ Options +MultiViews
 
 
 <IfDefine !DEV>
-  <Directory !src>
-    AuthType Basic
-    AuthName "Password Protected Area"
-    AuthUserFile /var/lib/openshift/572fbab47628e18c7e0000cf/app-root/runtime/repo/php/.htpasswd
-    Require valid-user
-  </Directory>
+  AuthType Basic
+  AuthName "Password Protected Area"
+  AuthUserFile /var/lib/openshift/572fbab47628e18c7e0000cf/app-root/runtime/repo/php/.htpasswd
+  Require valid-user
   Header add Access-Control-Allow-Origin "http://127.0.0.1"
 </IfDefine>
+<Directory /var/lib/openshift/572fbab47628e18c7e0000cf/app-root/data>
+     Satisfy Any
+</Directory>
 <IfDefine DEV>
   SetEnv OPENSHIFT_REPO_DIR C:/Users/wass1/Documents/openshiftWeb/Repo/
   SetEnv OPENSHIFT_MYSQL_DB_HOST 127.0.0.1
