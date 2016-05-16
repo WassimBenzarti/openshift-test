@@ -54,7 +54,7 @@ function loadingCircle(canvas){
           onComplete = onComplete || function(){};
           function quitPhase(){
             clearTimeout(interv);
-            $(window).unbind('touchmove');
+            $('html, body').css("overflow","");
             $('body').removeClass('loading');
             setTimeout(onComplete,2000);
           }
@@ -84,5 +84,6 @@ function doLoading(domLoad,onProgress,onComplete){
     onProgress();
     circle.stop(domLoad,onComplete);
   },2000);
-  $('html, body').bind('touchmove', function(e){e.preventDefault()});
+  $('#loadingHeader>.logo').width($(document.body).width());
+  $('html, body').css("overflow","hidden");
 }

@@ -70,17 +70,18 @@ function ImageLoader(data,container){
     var date=$('<span class="date">').html(d.created_time).appendTo(wrapper);
     var info,title,status;
     //////// INFO BOX ////////
-    if(d.status && d.status.length>0){
+    if(d.status!="NULL" && d.status.length>0){
       info=$('<div class="info">');
       title=$('<h1 class="title">').html(d.title).appendTo(info);
       status=$('<p class="status">').html(d.status).mouseleave(function(){$(this).animate({scrollTop:0});}).appendTo(info);
       if(d.status.length>150){status.addClass('more')}
       info.appendTo(wrapper);
-    }else if(d.title && d.title.length>0){
+    }else if(d.title!="..." && d.title.length>0){
       info=$('<div class="info">');
       title = $('<span class="title">').html(d.title).appendTo(info);
       info.appendTo(wrapper);
     }
+
     /////// IMG /////////
     var img=$('<a class="img">').attr('href','#'+d.id).append($('<span class="colorful">').css('background',d.color));
     var x = new Image();
@@ -109,7 +110,7 @@ function ImageLoader(data,container){
       }
     });
 
-    wrapper.on('visibleEvent',function(){console.log(this)
+    wrapper.on('visibleEvent',function(){
       timeLineAnim($(this).find('.img').offset().top);
     });
 
