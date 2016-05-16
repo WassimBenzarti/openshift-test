@@ -1,7 +1,7 @@
 Options +MultiViews
 
-    Header set Access-Control-Allow-Origin "*"
-    Header set Access-Control-Allow-Credentials "true"
+Header set Access-Control-Allow-Origin "*"
+#Header set Access-Control-Allow-Credentials "true"
 <IfDefine !DEV>
   AuthType Basic
   AuthName "Password Protected Area"
