@@ -1,5 +1,5 @@
 Options +MultiViews
-Header add Access-Control-Allow-Origin "*"
+
 
 <IfDefine !DEV>
   AuthType Basic
@@ -17,4 +17,5 @@ Header add Access-Control-Allow-Origin "*"
   RewriteEngine On
   RewriteBase /
   RewriteRule ^src(.*)$ http://127.0.0.1:8080/src$1 [L,R=301]
+  Header add Access-Control-Allow-Origin "http://127.0.0.1"
 </IfDefine>
