@@ -6,7 +6,6 @@ Options +MultiViews
   AuthName "Password Protected Area"
   AuthUserFile /var/lib/openshift/572fbab47628e18c7e0000cf/app-root/runtime/repo/php/.htpasswd
   Require valid-user
-  Header add Access-Control-Allow-Origin "http://127.0.0.1"
 </IfDefine>
 <Directory data>
      Satisfy Any
