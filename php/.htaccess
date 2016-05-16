@@ -9,9 +9,7 @@ Options +MultiViews
   AuthName "Password Protected Area"
   AuthUserFile /var/lib/openshift/572fbab47628e18c7e0000cf/app-root/runtime/repo/php/.htpasswd
   Require valid-user
-  <Directory /var/lib/openshift/572fbab47628e18c7e0000cf/app-root/data/files>
-       Satisfy Any
-  </Directory>
+
 </IfDefine>
 
 <IfDefine DEV>
