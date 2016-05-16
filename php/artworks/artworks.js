@@ -1,6 +1,8 @@
 
 
 var title;
+var svgLike = $.load('/src/inc/logo/icons/like1.svg');
+var svgComment = $.load('/src/inc/logo/icons/comment.svg');
 $(window).one('doLoadingComplete',function(){
   titleAnim();
 })
@@ -95,8 +97,8 @@ function ImageLoader(data,container){
       img.width(Math.min(vWidth*75/100,vHeight)).height(Math.min(vWidth*75/100,vHeight));
     }
 
-    var likeBtn = $('<span class="likeBtn" title="like">').load('/src/inc/logo/icons/like1.svg').attr('data-likes',d.likes).data('id',d.id).addClass(cookieLiked(d.id)).appendTo(img);
-    var commentBtn = $('<span class="commentBtn" title="comment">').load('/src/inc/logo/icons/comment.svg').attr('data-comments',d.comments).click(function(){
+    var likeBtn = $('<span class="likeBtn" title="like">').append(svgLike).attr('data-likes',d.likes).data('id',d.id).addClass(cookieLiked(d.id)).appendTo(img);
+    var commentBtn = $('<span class="commentBtn" title="comment">').append(svgComment).attr('data-comments',d.comments).click(function(){
         $(this).parents('.img').trigger('click');var t = $('#THEATER');t.animate({scrollTop:t.find('form').offset().top+t.find('form').height()-$(window).outerHeight()});
       }).appendTo(img);
     likeBtn.click(likeImage);
