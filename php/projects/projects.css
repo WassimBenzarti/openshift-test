@@ -8,7 +8,7 @@
   z-index:-1;
   right: 0; bottom: 0; min-width: 100%; min-height: 100%; width: auto; height: auto;
 }
-#HEAD:before{content:'';position:absolute;width:100%;height:100%;top:0;left:0;background:#000;opacity:.5;}
+#HEAD:before{content:'';position:absolute;width:100%;height:100%;top:0;left:0;background:#000;opacity:.9;}
 body.loading #HEAD{animation:none;}
 #HEAD .logo{
   width:100%;
