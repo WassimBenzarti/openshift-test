@@ -1,7 +1,8 @@
 
-$(function(){console.log("project.js loaded");
+$(function(){
   realTimeWorker();
   PHPprojectLoader.load(0,10,projectLoader,true);
+  setTimeout(function(){$('#liveBackground').on('visibleEvent',function(){$(this).hide()}).on('hideEvent',function(){$(this).fadeIn()}).fadeIn(2000).get(0).play()},5000);
 });
 
 function animCounter(c){
