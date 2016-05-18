@@ -91,11 +91,13 @@ function ImageLoader(data,container){
     img.css('background-image','url('+d.images[0].source+')');
 
     if(ratio > 1.2){
-      img.width(vWidth).height(vWidth/ratio);
+      if(vWidth/ratio < vHeight) img.width(vWidth).height(vWidth/ratio);
+      else img.width(vHeight*ratio).height(vHeight);
     }else if(ratio<0.8){
       img.width(vHeight*ratio).height(vHeight);
     }else{
-      img.width(Math.min(vWidth*75/100,vHeight)).height(Math.min(vWidth*75/100,vHeight));
+      if(vWidth/ratio < vHeight) img.width(vWidth).height(vWidth/ratio);
+      else img.width(vHeight*ratio).height(vHeight);
     }
 
     var likeBtn = $('<span class="likeBtn" title="like">').append(icons[0]).attr('data-likes',d.likes).data('id',d.id).addClass(cookieLiked(d.id)).appendTo(img);
