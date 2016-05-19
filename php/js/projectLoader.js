@@ -22,9 +22,10 @@ function callPlayer(iframe, func, args) {
 
 function projectsUI(data){
   for(var i=0;i<data.length;i++){
-    var d=data[i];
+    var d=data[i];console.log(d);
+    d.color="#333";
     var vHeight=$(window).outerHeight()*70/100;
-    var article=$('<article class="item fullscreen">');
+    var article=$('<article class="item fullscreen">').data('data',d);
     if(d.bg !== undefined){
       d.bg=$.parseJSON(d.bg);
       var bg=$('<div class="bg">').height(vHeight);
@@ -33,7 +34,6 @@ function projectsUI(data){
       }else if(d.bg.type == "Video"){
         loadBGVideo(d.bg,bg);
       }
-
       bg.appendTo(article);
     }
     var text=$('<div class="text">');
@@ -47,7 +47,7 @@ function projectsUI(data){
       d.link=$.parseJSON(d.link);
       $('<a href="'+d.link.src+'" >').html(d.link.text).appendTo(text);
     }
-    $('<a class="learnMore" href="#theater" >').html("Take a quick look").click(function(e){e.preventDefault();openProjectTheater(e.currentTarget)}).appendTo(text);
+    $('<a class="learnMore" href="#theater" >').html("Take a quick look").click(function(e){e.preventDefault();var p =$(e.currentTarget).parents('article.item');Theater.open('vtp',p.data('data'),p.find('.content'));/*openProjectTheater(e.currentTarget)*/}).appendTo(text);
     if(text.children().length>0){text.appendTo(article);}
     var content=$('<div class="content">');
     if(d.description !== undefined){

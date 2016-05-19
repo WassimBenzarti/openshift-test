@@ -12,7 +12,7 @@
   }
   this.open=function(type,d,elm){console.log(d);
     if(self.enabled){return;}
-    
+
     self.elm = elm.clone(true,true);
     self.original = elm.css({opacity:0});
     elm = self.elm;
@@ -89,6 +89,9 @@
             'height': ''
         });
       });
+    }
+    if(type.indexOf('p')>-1){
+      container.append(elm);
     }
     container.appendTo(self.tag);
     $('body').append(self.overlay,self.tag);

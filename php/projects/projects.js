@@ -18,6 +18,6 @@ function animCounter(c){
 
 function projectLoader(data){
   $(window).one('doLoadingComplete',function(){animCounter(data.count)});
-  var article = projectsUI(data.result);console.log(article);
+  var article = projectsUI(data.result);
   $('#PROJECTS').append(article);
 }
