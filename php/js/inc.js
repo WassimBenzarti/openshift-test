@@ -25,10 +25,7 @@ function loadContent(href,data,onComplete) {
 $(function(){
   var $mainContainer = $('#mainContainer');
   History.buildHandler=function(){
-    console.log('buildHandler');
-
     var State = History.getState();
-    History.log('statechange:', State.data, State.title, State.url);
     if(State.title=="Theater") return;
     $mainContainer.html(State.data.html);
     document.title = State.data.pageTitle;
@@ -39,7 +36,6 @@ $(function(){
   History.replaceState({"html":$mainContainer.html(),"pageTitle":document.title}, document.title, window.location.pathname);
 
   History.Adapter.bind(window,'statechange',function(){
-    console.log('stateChange');
     History.buildHandler();
     /*var State = History.getState();
     History.log('statechange:', State.data, State.title, State.url);
@@ -51,7 +47,9 @@ $(function(){
 
 
   nav = $('#menu nav');
-  doLoading(true,null,function(){$(window).trigger('doLoadingComplete');});
+  $('#loadingHeader>.logo').width($(document.body).width());
+  //doLoading(true,null,function(){$(window).trigger('doLoadingComplete');});
+  LOADER.doLoading(true,null,function(){$(window).trigger('doLoadingComplete');});
   nav.find("a[href$='" + window.location.pathname.replace(/\/index.php/,'/') + "']").first().addClass("current");
   nav.delegate("li", "click", function(e) {
       e.preventDefault();
@@ -60,7 +58,7 @@ $(function(){
       if($(this).find('a').hasClass('current')) return false;
       $(this).find('a').addClass("current");
       var _href = $(this).find('a').attr("href");
-      doLoading(true,function(){
+      LOADER.doLoading(true,function(){console.log('test');
         $.get(_href, function(result){
           loadContent(_href,result);
         });

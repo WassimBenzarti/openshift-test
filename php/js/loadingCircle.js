@@ -77,13 +77,63 @@ function loadingCircle(canvas){
 }
 function doLoading(domLoad,onProgress,onComplete){
   onProgress = onProgress || function(){};
+  onComplete = onComplete || function(){};
   $('body').addClass('loading');
-  var circle = new loadingCircle($('#loadingHeader canvas'));
-  circle.anim();
-  setTimeout(function(){
+  (function loading(){
     onProgress();
-    circle.stop(domLoad,onComplete);
-  },2000);
-  $('#loadingHeader>.logo').width($(document.body).width());
+    function quitPhase(){
+      clearTimeout(interv);
+      $('html, body').css("overflow","");
+      $('body').removeClass('loading');
+      setTimeout(onComplete,2000);
+    }
+    if(domLoad){
+      setTimeout(function(){
+        if (document.readyState === "complete" && $('body').hasClass('loading')) {
+          quitPhase()
+        }else{
+          self.stop(true,onComplete);
+        }
+      },1000);
+    }else{
+      quitPhase();
+    }
+  },$(document.body));
+  $('#loadingHeader').width($(document.body).width());
   $('html, body').css("overflow","hidden");
+}
+LOADER = new function(){
+  var self = this;
+  self.interv=null;
+  self.onProgress=function(){};
+  self.onComplete=function(){};
+  self.doLoading = function(domLoad,onProgress,onComplete){
+    if(typeof onProgress === 'function')self.onProgress=onProgress;
+    if(typeof onComplete === 'function')self.onComplete=onComplete;
+    var body = $('body');
+
+    /* INIT */
+    body.addClass('loading');
+    $('html, body').css("overflow","hidden");
+    /* FINISH */
+    function quitPhase(body){
+      clearTimeout(self.interv);
+      $('html, body').css("overflow","");
+      body.removeClass('loading');
+      setTimeout(self.onComplete,2000);
+    }
+    function repeat(){
+      self.onProgress();
+      if(domLoad){
+        if (document.readyState === "complete" && body.hasClass('loading')) {
+          quitPhase(body);console.log('completed')
+        }else{
+          self.interv = setTimeout(repeat,5000,domLoad,body,quitPhase);
+        }
+      }else{
+        quitPhase(body);
+      }
+    }
+    setTimeout(repeat,2000,domLoad,body,quitPhase);
+  }
 }

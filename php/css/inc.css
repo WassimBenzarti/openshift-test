@@ -38,22 +38,6 @@ body{padding:0;margin:0;overflow-x:hidden;color:#7D7D7D;font: 200 20px 'Roboto';
     opacity:1;
 	}
 }
-@keyframes animLoadedLoader {
-	to {
-		opacity: 0;
-		transform: translate(0,-100%) scale(0.3,0.3) translateZ(0px);
-	}
-}
-@keyframes animLoadedContent {
-	from{
-		opacity:0;
-		transform: translateY(50%) scale(1.2,1.2) translateZ(0px);
-	}
-  to{
-    opacity:1;
-		transform: none;
-  }
-}
 @keyframes rippleAnimation{
   70% {
     opacity:.5;
@@ -69,16 +53,16 @@ body{padding:0;margin:0;overflow-x:hidden;color:#7D7D7D;font: 200 20px 'Roboto';
 }
 @keyframes dashCircle {
   0% {
-    stroke-dasharray: 1,200;
+    stroke-dasharray: 1, 200;
     stroke-dashoffset: 0;
   }
   50% {
-    stroke-dasharray: 89,200;
-    stroke-dashoffset: -35px;
+    stroke-dasharray: 110,200;
+    stroke-dashoffset: -50;
   }
   100% {
-    stroke-dasharray: 89,200;
-    stroke-dashoffset: -124px;
+    stroke-dasharray: 130, 200;
+    stroke-dashoffset: -156;
   }
 }
 #loadingHeader{opacity:1;
@@ -98,16 +82,25 @@ body.loading #loadingHeader{
 #loadingHeader .logo{
   background:url('/src/inc/logo/logoArchiB.png') no-repeat 49% center/contain;
   height:60%;
+
   animation: animLoadedLogo 1s .5s cubic-bezier(0.7,0,0.3,1) both;
 }
 body.loading #loadingHeader .logo{animation: animInitialHeader 1s cubic-bezier(0.7,0,0.3,1) both;}
-#loadingHeader canvas{
+#loadingHeader svg{
   margin:auto auto;
   display:block;
-	-webkit-transform: translateZ(0px);
-  animation: animLoadedLoader 0.5s cubic-bezier(0.7,0,0.3,1) forwards;
 }
-body.loading #loadingHeader canvas{animation: animInitialHeader 1s cubic-bezier(0.7,0,0.3,1) both;}
+#loadingHeader svg circle{
+  stroke-dasharray: 1,200;
+  stroke-linecap: round;
+  stroke-width:0;
+  transition:stroke-width .5s;
+  transform-origin:center center;
+  animation: dashCircle 1.5s ease-in-out infinite forwards,rotateCircle 3s linear infinite forwards;
+}
+body.loading #loadingHeader svg circle{
+  stroke-width:4;
+}
 #mainContainer{
   height:100%;
   width:100%;
