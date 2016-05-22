@@ -128,7 +128,7 @@ LOADER = new function(){
         if (document.readyState === "complete" && body.hasClass('loading')) {
           quitPhase(body);console.log('completed')
         }else{
-          self.interv = setTimeout(repeat,5000,domLoad,body,quitPhase);
+          self.interv = setTimeout(repeat,1000,domLoad,body,quitPhase);
         }
       }else{
         quitPhase(body);

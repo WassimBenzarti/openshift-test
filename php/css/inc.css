@@ -61,7 +61,7 @@ body{padding:0;margin:0;overflow-x:hidden;color:#7D7D7D;font: 200 20px 'Roboto';
     stroke-dashoffset: -50;
   }
   100% {
-    stroke-dasharray: 130, 200;
+    stroke-dasharray: 140, 200;
     stroke-dashoffset: -156;
   }
 }

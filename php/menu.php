@@ -1,7 +1,7 @@
 <div id="loadingHeader">
 
   <div class="logo"></div>
-  <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="25" stroke="#000" fill="none" stroke-width="4"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><circle cx="50" cy="50" r="25" fill="none" stroke="#000" stroke-width="4"/></svg>
 </div>
 <div id="menu">
   <span class="icon"><span id="sandwich"></span></span>
