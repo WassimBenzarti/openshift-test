@@ -28,7 +28,7 @@
   if(isset($_GET['upload'])){
     $res = share("https://graph.facebook.com/me/photos?".testPTOKEN,"hello");
     echo "<pre>";
-    echo json_encode();
+    echo json_encode($res);
     echo "</pre>";
     die();
   }
