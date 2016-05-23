@@ -5,8 +5,6 @@
   define('testPTOKEN','access_token=EAAXnZBDdib2sBAFcwEZAozOKZCaUEZBQoAviQIODZCfplFgB1pcjuTRSYOzbzwfnoZBYr7HZCgP3lJdzOYTXM0WEqeF5Om4hu5xstjch2wl5yez1Nko58fAsJLAl0HxeHKswut0F9dJe2oCrkUEWzaDZBO3Wv8aogV6iAjqolQe2ggZDZD');
   function share($url,$caption){
     if(!isset($caption)){$caption = ""}
-
-
     $data = array('caption' => $_POST['msg'], 'url' => $_POST['url']);
     $options = array(
         'http' => array(
@@ -28,7 +26,7 @@
     return ['success'=>$succ];
   }
   if(isset($_GET['upload'])){
-    $url = "https://graph.facebook.com/me/photos?".testPTOKEN;
+    $res = share("https://graph.facebook.com/me/photos?".testPTOKEN,"hello");
     echo "<pre>";
     echo json_encode();
     echo "</pre>";
