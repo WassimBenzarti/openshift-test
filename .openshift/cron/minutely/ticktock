@@ -1,3 +1,3 @@
 #!/bin/bash
-date >> ${OPENSHIFT_LOG_DIR}/ticktock.log
-php ${OPENSHIFT_REPO_DIR}php/admin/publishPage.php?upload >> ${OPENSHIFT_LOG_DIR}/ticktock.log
+#date >> ${OPENSHIFT_LOG_DIR}/ticktock.log
+#php ${OPENSHIFT_REPO_DIR}php/admin/publishPage.php?upload >> ${OPENSHIFT_LOG_DIR}/ticktock.log
