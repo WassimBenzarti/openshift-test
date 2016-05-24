@@ -16,12 +16,8 @@
   define('testPTOKEN','access_token=EAAXnZBDdib2sBAFcwEZAozOKZCaUEZBQoAviQIODZCfplFgB1pcjuTRSYOzbzwfnoZBYr7HZCgP3lJdzOYTXM0WEqeF5Om4hu5xstjch2wl5yez1Nko58fAsJLAl0HxeHKswut0F9dJe2oCrkUEWzaDZBO3Wv8aogV6iAjqolQe2ggZDZD');
   function share($img,$url,$image,$old){
 
-    if(!isset($img[0]['caption'])){$caption = "
-
-      "."Feel free to like my facebook page : https://fb.com/artdaydream";}else{
-        $caption = $img[0]['caption']."
-
-          "."Feel free to like my facebook page : https://fb.com/artdaydream";
+    if(!isset($img[0]['caption'])){$caption = "";}else{
+        $caption = $img[0]['caption'];
       }
     echo $caption;
     $data = array('caption' => $caption, 'url' =>$image);
