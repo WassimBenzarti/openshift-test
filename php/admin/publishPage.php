@@ -29,15 +29,11 @@
     );
     $context  = stream_context_create($options);
     $result = file_get_contents($url, false, $context);
-    $succ = 0;
-    if ($result !== FALSE) { /* Handle error */
-      $succ = 1;
-
+    $succ = ($result !== FALSE);
+    if($result !== FALSE){
       $old->execute(['id' => $img[0]['id']]);
-
-      return ['success'=>$succ];
     }
-    return ['success'=>$succ];
+    return ['success'=>$succ,'result'=>$result];
   }
   if( sizeof($img) >0){
     $res = share($img,"https://graph.facebook.com/me/feed?".testUTOKEN,$img[0]['caption'],"https://wassim-benzarti.rhcloud.com".$img[0]['url'],$old);
