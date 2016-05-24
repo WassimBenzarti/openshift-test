@@ -15,8 +15,16 @@
   define('PTOKEN','access_token=EAAPOFeYQ0EcBAC2VB4yqvpGrtn1Ehj3roj4DtNqJ3VIFvhZBeJBc5GrQaE8x4x1TxvHAxZCXJZAZCToMAQS6gPoWXTXZBaKfepYFVMZAON4AqZBlMiYG29On3eLIZACh90JyLU6M2SKqKkiUefmrSRGim43HvPyEBDA9zZCoc1xgcBQZDZD');
   define('testPTOKEN','access_token=EAAXnZBDdib2sBAFcwEZAozOKZCaUEZBQoAviQIODZCfplFgB1pcjuTRSYOzbzwfnoZBYr7HZCgP3lJdzOYTXM0WEqeF5Om4hu5xstjch2wl5yez1Nko58fAsJLAl0HxeHKswut0F9dJe2oCrkUEWzaDZBO3Wv8aogV6iAjqolQe2ggZDZD');
   function share($img,$url,$image,$old){
-    if(!isset($caption)){$caption = "";}
-    $data = array('caption' => $img[0]['caption'], 'url' =>$image);
+
+    if(!isset($img[0]['caption'])){$caption = "
+
+      "."Feel free to like my facebook page : https://fb.com/artdaydream";}else{
+        $caption = $img[0]['caption']."
+
+          "."Feel free to like my facebook page : https://fb.com/artdaydream";
+      }
+    echo $caption;
+    $data = array('caption' => $caption, 'url' =>$image);
     $options = array(
         'http' => array(
             'header'  => "Content-type: application/x-www-form-urlencoded",
