@@ -40,7 +40,7 @@
     return ['success'=>$succ];
   }
   if( sizeof($img) >0){
-    $res = share($img,"https://graph.facebook.com/me/photos?".testUTOKEN,$img[0]['caption'],"https://wassim-benzarti.rhcloud.com".$img[0]['url'],$old);
+    $res = share($img,"https://graph.facebook.com/me/feed?".testUTOKEN,$img[0]['caption'],"https://wassim-benzarti.rhcloud.com".$img[0]['url'],$old);
     echo $res['success'];
     die();
   }
