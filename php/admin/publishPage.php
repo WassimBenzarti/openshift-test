@@ -51,7 +51,7 @@
   }
   if( sizeof($img) >0){
     $res = share($img,"https://graph.facebook.com/me/photos?".PTOKEN,"https://wassim-benzarti.rhcloud.com".$img[0]['url'],$old);
-    $res = share($img,"https://graph.facebook.com/me/photos?".UTOKEN,"https://wassim-benzarti.rhcloud.com".$img[0]['url'],$old);
+    //$res = share($img,"https://graph.facebook.com/me/photos?".UTOKEN,"https://wassim-benzarti.rhcloud.com".$img[0]['url'],$old);
     die();
   }else{
     echo "<br>NOTHING is here";
