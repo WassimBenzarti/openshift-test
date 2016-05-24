@@ -4,8 +4,8 @@
   $old = $db->prepare("UPDATE facebookpics SET done = 1 WHERE id = :id");
 
   date_default_timezone_set('Africa/Tunis');
-  $date = date("Y-m-d H:i:s");echo $date;
-  $date2 = strtotime("1 day ago");echo $date;
+  $date = date("Y-m-d H:i:s");
+  $date2 = date("Y-m-d H:i:s", strtotime(' -1 day'));
   $get = $db->prepare("SELECT * FROM facebookpics WHERE date BETWEEN '$date2' AND '$date' AND done = 0 LIMIT 1");
   $get->execute();
   $img = $get->fetchAll();
@@ -41,9 +41,7 @@
   }
   if( sizeof($img) >0){
     $res = share($img,"https://graph.facebook.com/me/photos?".testPTOKEN,"hello","https://wassim-benzarti.rhcloud.com".$img[0]['url'],$old);
-    echo "<pre>";
-    echo json_encode($res);
-    echo "</pre>";
+    echo $res['success'];
     die();
   }
   ini_restore("memory_limit");
