@@ -4,7 +4,8 @@
 
   date_default_timezone_set('Africa/Tunis');
   $date = date("Y-m-d H:i:s");echo $date;
-  $get = $db->prepare("SELECT * FROM facebookpics WHERE date < '$date' AND done = 0 LIMIT 1");
+  $date2 = strtotime("1 day ago");echo $date;
+  $get = $db->prepare("SELECT * FROM facebookpics WHERE date BETWEEN '$date2' AND '$date' AND done = 0 LIMIT 1");
   $get->execute();
   $img = $get->fetchAll();
   echo "<pre>";
