@@ -9,7 +9,9 @@ Header set Access-Control-Allow-Origin "*"
   Require valid-user
 
 </IfDefine>
-
+<files menu.php>
+  require valid-user
+</files>
 <IfDefine DEV>
   SetEnv OPENSHIFT_REPO_DIR C:/Users/wass1/Documents/openshiftWeb/Repo/
   SetEnv OPENSHIFT_DATA_DIR http://127.0.0.1:8080/src/
