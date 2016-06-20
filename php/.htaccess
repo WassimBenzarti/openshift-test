@@ -6,12 +6,12 @@ Header set Access-Control-Allow-Origin "*"
   AuthType Basic
   AuthName "Password Protected Area"
   AuthUserFile /var/lib/openshift/572fbab47628e18c7e0000cf/app-root/runtime/repo/php/.htpasswd
-  Require valid-user
+  <files !cron.php>
+     Require valid-user
+  </files>
 
 </IfDefine>
-<files menu.php>
-  require valid-user
-</files>
+
 <IfDefine DEV>
   SetEnv OPENSHIFT_REPO_DIR C:/Users/wass1/Documents/openshiftWeb/Repo/
   SetEnv OPENSHIFT_DATA_DIR http://127.0.0.1:8080/src/
