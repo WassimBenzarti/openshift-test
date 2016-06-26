@@ -1,12 +1,13 @@
 <?php
-  //if(!isset($argv[1]) || !$argv[1]=="cronjob" || !isset($argv[1]) || !$argv[1]=="upload"){die();}
+  if(!isset($argv[1]) || !$argv[1]=="cronjob" || !isset($argv[1]) || !$argv[1]=="upload"){die();}
+  echo "working...";
   require_once(getenv("OPENSHIFT_REPO_DIR")."php/connect.php");
-  $old = $db->prepare("UPDATE facebookpics SET done = 1 WHERE id = :id");
+  $old = $db->prepare("UPDATE facebookpics SET done = 1, posted = 1 WHERE id = :id");
 
   date_default_timezone_set('Africa/Tunis');
   $date = date("Y-m-d H:i:s");
   $date2 = date("Y-m-d H:i:s", strtotime(' -1 day'));
-  $get = $db->prepare("SELECT * FROM facebookpics WHERE date BETWEEN '$date2' AND '$date' AND done = 0 LIMIT 1");
+  $get = $db->prepare("SELECT * FROM facebookpics WHERE date BETWEEN '$date2' AND '$date' AND done = 0 AND posted=0 LIMIT 1");
   $get->execute();
   $img = $get->fetchAll();
   ini_set("memory_limit",-1);
