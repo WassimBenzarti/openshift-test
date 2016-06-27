@@ -1,7 +1,7 @@
 
 
 <?php
-  require("../connect.php");
+  require_once(getenv("OPENSHIFT_REPO_DIR")."php/connect.php");
   if(isset($_POST['id']) && isset($_POST['caption']) && isset($_POST['date']) && isset($_POST['done'])){
     $set = $db->prepare("UPDATE facebookpics SET caption=:cap, done=:done , date=:date WHERE id=:id");
     $res = $set->execute([':cap'=>$_POST['caption'],
@@ -20,7 +20,7 @@
   $get = $db->prepare("SELECT * FROM facebookpics WHERE done = 0 ORDER BY id LIMIT 10 OFFSET :pg");
   $get->bindValue(':pg', intval($_GET['pg']), PDO::PARAM_INT);
   $get->execute();
-  
+
   $imgs = $get->fetchAll(PDO::FETCH_ASSOC);
 
 
