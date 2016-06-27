@@ -13,6 +13,7 @@ if (isset($_FILES['upload_file'])) {
       $res['success'] = false;
   }
   $res['id'] = $nb;
+  $res['url']=getenv("OPENSHIFT_DATA_DIR")."photoshare/".$nb.".".$ext;
   die(json_encode($res));
 }
 
