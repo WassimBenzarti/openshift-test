@@ -7,7 +7,7 @@ if (isset($_FILES['upload_file'])) {
   $nb=$db->lastInsertId();
 
   if(move_uploaded_file($_FILES['upload_file']['tmp_name'],getenv("OPENSHIFT_DATA_DIR")."/files/photoshare/".$nb.".".$ext)){
-      $db->query("UPDATE SET url='src/photoshare/".$nb.".".$ext."' WHERE id='$nb'");
+      $db->query("UPDATE SET url='src/photoshare/".$nb.".".$ext."' WHERE id=".$nb);
       $res['success'] = true;
   } else {
       $res['success'] = false;
