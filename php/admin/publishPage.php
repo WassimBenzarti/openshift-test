@@ -50,7 +50,7 @@
     $res = share($img,"https://graph.facebook.com/me/photos?".testPTOKEN,"https://wassim-benzarti.rhcloud.com".$img[0]['url'],$old);
     $img[0]['caption'] .= "
 
-    Feel free to like my facebook page : https://www.fb.com/artdaydream/";
+    Feel free to like my facebook page : https://www.fb.com/art.daydream/";
     //$res = share($img,"https://graph.facebook.com/me/photos?".UTOKEN,"https://wassim-benzarti.rhcloud.com".$img[0]['url'],$old);
     die();
   }else{
