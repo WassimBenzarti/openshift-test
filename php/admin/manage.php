@@ -17,8 +17,10 @@
   if(!isset($_GET['pg'])){
     die();
   }
-  $get = $db->prepare("SELECT * FROM facebookpics WHERE done = 0 ORDER BY id LIMIT 10 ");
+  $get = $db->prepare("SELECT * FROM facebookpics WHERE done = 0 ORDER BY id LIMIT 10 OFFSET :pg");
+  $get->bindValue(':pg', intval($_GET['pg']), PDO::PARAM_INT);
   $get->execute();
+  
   $imgs = $get->fetchAll(PDO::FETCH_ASSOC);
 
 
