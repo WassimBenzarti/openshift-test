@@ -1,5 +1,5 @@
 <?php
-  if(!isset($argv[1]) || !$argv[1]=="cronjob" || !isset($argv[1]) || !$argv[1]=="upload"){die();}
+  //if(!isset($argv[1]) || !$argv[1]=="cronjob" || !isset($argv[1]) || !$argv[1]=="upload"){die();}
   echo "working...";
   require_once(getenv("OPENSHIFT_REPO_DIR")."php/connect.php");
   $old = $db->prepare("UPDATE facebookpics SET done = 1, posted = 1 WHERE id = :id");
@@ -47,7 +47,7 @@
     return ['success'=>$succ,'result'=>$result];
   }
   if( sizeof($img) >0){
-    $res = share($img,"https://graph.facebook.com/me/photos?".PTOKEN,"https://wassim-benzarti.rhcloud.com".$img[0]['url'],$old);
+    $res = share($img,"https://graph.facebook.com/me/photos?".testPTOKEN,"https://wassim-benzarti.rhcloud.com".$img[0]['url'],$old);
     //$res = share($img,"https://graph.facebook.com/me/photos?".UTOKEN,"https://wassim-benzarti.rhcloud.com".$img[0]['url'],$old);
     die();
   }else{
