@@ -18,7 +18,7 @@ if(isset($_GET['URL'])){
   $tmpfname = tempnam(getenv('OPENSHIFT_TMP_DIR'), 'FOO');
 
   imagejpeg($image,$tmpfname,25);
-  $buffer = file_get_contents($url);
+  $buffer = file_get_contents($tmpfname);
   /* Force download dialog... */
 	header("Content-Type: application/force-download");
 	header("Content-Type: application/octet-stream");
@@ -31,7 +31,7 @@ if(isset($_GET['URL'])){
 	header("Content-Type: application/octet-stream");
 	header("Content-Transfer-Encoding: binary");
 	header("Content-Length: " . strlen($buffer));
-	header("Content-Disposition: attachment; filename=$url");
+	header("Content-Disposition: attachment; filename=$tmpfname");
 
 	/* Send our file... */
 	echo $buffer;
