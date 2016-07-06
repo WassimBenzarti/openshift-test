@@ -2,7 +2,6 @@
 
 if(isset($_GET['URL'])){
   $filename = $_GET['URL'];
-  echo  ( strtolower(explode("?",end(explode(".",$filename)))[0]) );
   switch ( strtolower(explode("?",end(explode(".",$filename)))[0]) ) {
       case 'jpeg':
           $image = imagecreatefromjpeg($filename);
@@ -17,10 +16,11 @@ if(isset($_GET['URL'])){
       break;
   }
   $tmpfname = tempnam(getenv('OPENSHIFT_TMP_DIR'), 'FOO');
-
+  var_dump($image);
+  die();
   imagejpeg($image,getenv('OPENSHIFT_TMP_DIR').$tmpfname,50);
   $buffer = file_get_contents($tmpfname);
-  die($buffer);
+
   /* Force download dialog... */
 	// header("Content-Type: application/force-download");
 	// header("Content-Type: application/octet-stream");
