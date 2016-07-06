@@ -17,8 +17,7 @@ if(isset($_GET['URL'])){
       break;
   }
   $tmpfname = tempnam(getenv('OPENSHIFT_TMP_DIR'), 'FOO');
-  var_dump(getenv('OPENSHIFT_TMP_DIR')."###".$tmpfname);
-  die();
+
   imagejpeg($image,$tmpfname,50);
   $buffer = file_get_contents($tmpfname,FILE_USE_INCLUDE_PATH);
 
