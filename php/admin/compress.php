@@ -37,7 +37,8 @@ if(isset($_GET['URL'])){
 	// header("Content-Disposition: attachment; filename=$tmpfname");
 
 	/* Send our file... */
-	echo $buffer;
+
 }
 
 ?>
+<img src="<?php echo $buffer; ?>" >
