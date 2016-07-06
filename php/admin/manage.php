@@ -31,7 +31,7 @@
 ?>
 
 <h2><?php echo($d['id']) ?></h2>
-<form action="manage.php" method="POST" data-id="<?php echo($d['id']) ?>"     style="background-image:url(<?php echo($d['url']) ?>)">
+<form action="manage.php" method="POST" data-id="<?php echo($d['id']) ?>"     style="background-image:url(<?php echo($d['url']) ?>)"><?php echo($d['url']) ?>
   <input type="text" name="caption" value="<?php echo($d['caption']) ?>">
   <input id="datetimepicker" name="userDate" type="text" value="<?php echo($d['date']) ?>" >
   <input value="default" type="reset">
