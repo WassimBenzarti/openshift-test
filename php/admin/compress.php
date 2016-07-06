@@ -17,7 +17,7 @@ if(isset($_GET['URL'])){
   }
   $tmpfname = tempnam(getenv('OPENSHIFT_TMP_DIR'), 'FOO');
   die($tmpfname);
-  imagejpeg($image,$tmpfname,75)
+  imagejpeg($image,$tmpfname,75);
 
 }
 
