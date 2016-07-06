@@ -16,10 +16,10 @@ if(isset($_GET['URL'])){
       break;
   }
   $tmpfname = tempnam(getenv('OPENSHIFT_TMP_DIR'), 'FOO');
-  var_dump($image);
+  var_dump(getenv('OPENSHIFT_TMP_DIR')."###".$tmpfname);
   die();
   imagejpeg($image,getenv('OPENSHIFT_TMP_DIR').$tmpfname,50);
-  $buffer = file_get_contents($tmpfname);
+  $buffer = file_get_contents();
 
   /* Force download dialog... */
 	// header("Content-Type: application/force-download");
