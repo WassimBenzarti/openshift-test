@@ -1,5 +1,14 @@
 <?php
 
+function output_image ( $image_file ) {
+    header("Content-type: image/jpeg");
+    header('Content-Length: ' . filesize($image_file));
+    ob_clean();
+    flush();
+    readfile($image_file);
+}
+
+
 if(isset($_GET['URL'])){
   $filename = $_GET['URL'];
   $image;
@@ -19,7 +28,9 @@ if(isset($_GET['URL'])){
   $tmpfname = tempnam(getenv('OPENSHIFT_TMP_DIR'), 'FOO');
 
   imagejpeg($image,$tmpfname,50);
-  $buffer = file_get_contents($tmpfname,FILE_USE_INCLUDE_PATH);
+
+  output_image($tmpfname);
+  //$buffer = file_get_contents($tmpfname,FILE_USE_INCLUDE_PATH);
 
   /* Force download dialog... */
 	// header("Content-Type: application/force-download");
@@ -31,13 +42,13 @@ if(isset($_GET['URL'])){
 
 	/* Set data type, size and filename */
 	//header("Content-Type: application/octet-stream");
-  header("Content-Type: jpeg");
+  // header("Content-Type: jpeg");
 	// header("Content-Transfer-Encoding: binary");
 	// header("Content-Length: " . strlen($buffer));
 	// header("Content-Disposition: attachment; filename=$tmpfname");
 
 	/* Send our file... */
-  die(var_dump($buffer));
+
 }
 
 ?>
