@@ -16,9 +16,25 @@ if(isset($_GET['URL'])){
       break;
   }
   $tmpfname = tempnam(getenv('OPENSHIFT_TMP_DIR'), 'FOO');
-  die($tmpfname);
-  imagejpeg($image,$tmpfname,75);
 
+  imagejpeg($image,$tmpfname,25);
+  $buffer = file_get_contents($url);
+  /* Force download dialog... */
+	header("Content-Type: application/force-download");
+	header("Content-Type: application/octet-stream");
+	header("Content-Type: application/download");
+
+  /* Don't allow caching... */
+	header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+
+	/* Set data type, size and filename */
+	header("Content-Type: application/octet-stream");
+	header("Content-Transfer-Encoding: binary");
+	header("Content-Length: " . strlen($buffer));
+	header("Content-Disposition: attachment; filename=$url");
+
+	/* Send our file... */
+	echo $buffer;
 }
 
 ?>
