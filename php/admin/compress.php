@@ -20,9 +20,9 @@ if(isset($_GET['URL'])){
   imagejpeg($image,$tmpfname,25);
   $buffer = file_get_contents($tmpfname);
   /* Force download dialog... */
-	header("Content-Type: application/force-download");
-	header("Content-Type: application/octet-stream");
-	header("Content-Type: application/download");
+	// header("Content-Type: application/force-download");
+	// header("Content-Type: application/octet-stream");
+	// header("Content-Type: application/download");
 
   /* Don't allow caching... */
 	header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
