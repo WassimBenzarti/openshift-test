@@ -37,7 +37,7 @@ if(isset($_GET['URL'])){
 	// header("Content-Disposition: attachment; filename=$tmpfname");
 
 	/* Send our file... */
-  die($buffer);
+  die(var_dump($buffer));
 }
 
 ?>
