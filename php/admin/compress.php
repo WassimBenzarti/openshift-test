@@ -27,7 +27,7 @@ if(isset($_GET['URL'])){
 	// header("Content-Type: application/download");
 
   /* Don't allow caching... */
-	header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+	//header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
 
 	/* Set data type, size and filename */
 	//header("Content-Type: application/octet-stream");
