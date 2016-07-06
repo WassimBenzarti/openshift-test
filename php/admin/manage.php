@@ -26,7 +26,7 @@
 
   for($i = 0;$i<sizeof($imgs);$i++){
     $d = $imgs[$i];
-    //$d['url'] = '/admin/compress.php?URL='+urlencode($d['url']);
+    $d['url'] = '/admin/compress.php?URL='.rawurlencode($d['url']);
 
 ?>
 
