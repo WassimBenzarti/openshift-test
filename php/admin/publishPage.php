@@ -2,7 +2,7 @@
   if(!isset($argv[1]) || !$argv[1]=="cronjob" || !isset($argv[1]) || !$argv[1]=="upload"){die();}
   echo "working...";
   require_once(getenv("OPENSHIFT_REPO_DIR")."php/connect.php");
-  $old = $db->prepare("UPDATE facebookpics SET done = 0, posted = 0 WHERE id = :id");
+  $old = $db->prepare("UPDATE facebookpics SET done = 1, posted = 1 WHERE id = :id");
 
   date_default_timezone_set('Africa/Tunis');
   $date = date("Y-m-d H:i:s");
