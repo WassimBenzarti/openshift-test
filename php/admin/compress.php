@@ -45,7 +45,7 @@ if(isset($_GET['URL'])){
   // header("Content-Type: jpeg");
 	header("Content-Transfer-Encoding: binary");
 	header("Content-Length: " . strlen($buffer));
-	header("Content-Disposition: attachment; filename=$tmpfname");
+	header("Content-Disposition: attachment; filename=image.jpg");
 
 	/* Send our file... */
   echo $buffer;
