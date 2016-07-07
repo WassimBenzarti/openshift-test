@@ -1,5 +1,5 @@
 <?php
-
+require_once "../connect.php";
 function output_image ( $image_file ) {
     header("Content-type: image/jpeg");
     header('Content-Length: ' . filesize($image_file));
