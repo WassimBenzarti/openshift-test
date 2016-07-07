@@ -8,7 +8,7 @@ function output_image ( $image_file ) {
     readfile($image_file);
 }
 
-
+ini_set("memory_limit",-1);
 if(isset($_GET['URL'])){
   $filename = SERVERROOTPATH.$_GET['URL'];
   $image;
@@ -50,5 +50,5 @@ if(isset($_GET['URL'])){
 	/* Send our file... */
   echo $buffer
 }
-
+ini_restore("memory_limit");
 ?>
