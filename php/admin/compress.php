@@ -27,28 +27,28 @@ if(isset($_GET['URL'])){
   }
   $tmpfname = tempnam(SERVERDATAPATH, 'FOO');
 
-  imagejpeg($image,$tmpfname.".jpg",50);
+  imagejpeg($image,$tmpfname,50);
 
-  output_image($tmpfname);
-  //$buffer = file_get_contents($tmpfname,FILE_USE_INCLUDE_PATH);
+  //output_image($tmpfname);
+  $buffer = file_get_contents($tmpfname,FILE_USE_INCLUDE_PATH);
 
   /* Force download dialog... */
-	// header("Content-Type: application/force-download");
-	// header("Content-Type: application/octet-stream");
-	// header("Content-Type: application/download");
+	header("Content-Type: application/force-download");
+	header("Content-Type: application/octet-stream");
+	header("Content-Type: application/download");
 
   /* Don't allow caching... */
-	//header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+	header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
 
 	/* Set data type, size and filename */
-	//header("Content-Type: application/octet-stream");
+	header("Content-Type: application/octet-stream");
   // header("Content-Type: jpeg");
-	// header("Content-Transfer-Encoding: binary");
-	// header("Content-Length: " . strlen($buffer));
-	// header("Content-Disposition: attachment; filename=$tmpfname");
+	header("Content-Transfer-Encoding: binary");
+	header("Content-Length: " . strlen($buffer));
+	header("Content-Disposition: attachment; filename=$tmpfname");
 
 	/* Send our file... */
-
+  echo $buffer
 }
 
 ?>
