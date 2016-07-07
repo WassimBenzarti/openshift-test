@@ -48,7 +48,7 @@ if(isset($_GET['URL'])){
 	header("Content-Disposition: attachment; filename=$tmpfname");
 
 	/* Send our file... */
-  echo $buffer
+  echo $buffer;
 }
 ini_restore("memory_limit");
 ?>
