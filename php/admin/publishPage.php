@@ -56,6 +56,7 @@
     die();
   }else{
     echo "<br>NOTHING is here";
+    echo $date1." ######## ".$date2;
   }
   ini_restore("memory_limit");
   ?>
