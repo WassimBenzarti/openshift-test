@@ -25,9 +25,9 @@ if(isset($_GET['URL'])){
         $image = imagecreatefromgif($filename);
       break;
   }
-  $tmpfname = tempnam(__dirname, 'FOO');
+  $tmpfname = tempnam(SERVERDATAPATH, 'FOO');
   die( $tmpfname);
-  imagejpeg($image,$tmpfname,50);
+  imagejpeg($image,$tmpfname.".jpg",50);
 
   output_image($tmpfname);
   //$buffer = file_get_contents($tmpfname,FILE_USE_INCLUDE_PATH);
@@ -52,4 +52,3 @@ if(isset($_GET['URL'])){
 }
 
 ?>
-<img src="<?php echo $buffer; ?>" >
