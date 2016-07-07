@@ -26,7 +26,7 @@ if(isset($_GET['URL'])){
       break;
   }
   $tmpfname = tempnam(SERVERDATAPATH, 'FOO');
-  die( $tmpfname);
+  die( SERVERDATAPATH);
   imagejpeg($image,$tmpfname.".jpg",50);
 
   output_image($tmpfname);
