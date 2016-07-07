@@ -10,7 +10,7 @@ function output_image ( $image_file ) {
 
 
 if(isset($_GET['URL'])){
-  $filename = $_GET['URL'];
+  $filename = SERVERROOTPATH.$_GET['URL'];
   $image;
   switch ( strtolower(explode("?",end(explode(".",$filename)))[0]) ) {
       case 'jpeg':
