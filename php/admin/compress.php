@@ -25,7 +25,7 @@ if(isset($_GET['URL'])){
         $image = imagecreatefromgif($filename);
       break;
   }
-  $tmpfname = tempnam(SERVERDATAPATH, 'FOO');
+  $tmpfname = tempnam(getenv('OPENSHIFT_TMP_DIR'), 'FOO');
 
   imagejpeg($image,$tmpfname,25);
 
