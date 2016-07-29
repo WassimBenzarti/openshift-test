@@ -6,10 +6,13 @@ Header set Access-Control-Allow-Origin "*"
   AuthType Basic
   AuthName "Password Protected Area"
   AuthUserFile /var/lib/openshift/572fbab47628e18c7e0000cf/app-root/runtime/repo/php/.htpasswd
-  <files !cron.php>
-     Require valid-user
-  </files>
-
+  <Files "*">
+	Require valid-user
+  </Files>
+  <Files "cron.php">
+	Allow from all 
+	Satisfy any
+  </Files>
 </IfDefine>
 
 <IfDefine DEV>
