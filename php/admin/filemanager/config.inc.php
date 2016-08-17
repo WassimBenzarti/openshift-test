@@ -36,7 +36,7 @@ dateTimeFormat = "%Y-%m-%d %H:%M:%S"
 
 ; FileManager's data directory (file path, example for local mode: /home/users/gerry/htdocs/files)
 ; NOTE: must be an absolute path in local mode and a relative path in FTP mode
-rootDir = ""
+rootDir = "/var/lib/openshift/572fbab47628e18c7e0000cf/app-root/data"
 
 ; open this directory by default (file path, example: "files/images"
 ; NOTE: this path is relative to FileManager's data directory
