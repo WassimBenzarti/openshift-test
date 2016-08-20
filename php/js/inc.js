@@ -1,3 +1,6 @@
+$.ajaxSetup({
+    async: true
+});
 window.requestAnimFrame = (function(){
   return  window.requestAnimationFrame       ||
           window.webkitRequestAnimationFrame ||
