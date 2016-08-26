@@ -12,10 +12,10 @@ ini_set("memory_limit",-1);
 if(isset($_GET['URL'])){
   $filename = SERVERROOTPATH.$_GET['URL'];
   $image;
-die(strtolower(explode("?",end(explode(".",$_GET['URL'])))[0]) );
   switch ( strtolower(explode("?",end(explode(".",$_GET['URL'])))[0]) ) {
       case 'jpeg':
           $image = imagecreatefromjpeg($filename);
+      break;	
       case 'jpg':
           $image = imagecreatefromjpeg($filename);
       break;
