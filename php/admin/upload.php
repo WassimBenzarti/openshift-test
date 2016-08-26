@@ -5,12 +5,12 @@ if (isset($_FILES['upload_file'])) {
   $ext = pathinfo($_FILES['upload_file']['name'], PATHINFO_EXTENSION);
   $db->query("INSERT INTO facebookpics SET date='0000-00-00 00:00:00',url='',caption='error',done=0,posted=0");
   $nb=$db->lastInsertId();
-
+  $res['test']=getenv("OPENSHIFT_DATA_DIR")."/files/photoshare/".$nb.".".$ext;
   if(move_uploaded_file($_FILES['upload_file']['tmp_name'],getenv("OPENSHIFT_DATA_DIR")."/files/photoshare/".$nb.".".$ext)){
       $db->query("UPDATE facebookpics SET url='src/photoshare/".$nb.".".$ext."' caption='' WHERE id=".$nb);
-      $res['success'] = true;
+      $res['success'] = 1;
   } else {
-      $res['success'] = false;
+      $res['success'] = 0;
   }
   $res['id'] = $nb;
   $res['url']=getenv("OPENSHIFT_DATA_DIR")."photoshare/".$nb.".".$ext;
