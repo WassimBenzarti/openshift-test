@@ -7,7 +7,7 @@ if (isset($_FILES['upload_file'])) {
   $nb=$db->lastInsertId();
   $res['test']=getenv("OPENSHIFT_DATA_DIR")."/files/photoshare/".$nb.".".$ext;
   if(move_uploaded_file($_FILES['upload_file']['tmp_name'],getenv("OPENSHIFT_DATA_DIR")."/files/photoshare/".$nb.".".$ext)){
-      $db->query("UPDATE facebookpics SET url='src/photoshare/".$nb.".".$ext."' caption='' WHERE id=".$nb);
+      $db->query("UPDATE facebookpics SET url='src/photoshare/".$nb.".".$ext."' WHERE id=".$nb);
       $res['success'] = 1;
   } else {
       $res['success'] = 0;
@@ -39,7 +39,7 @@ function uploadFile(file){
             // Every thing ok, file uploaded
             alert(xhr.responseText); // handle response.
             result = JSON.parse(req.responseText);
-
+		console.log(result);
         }
     };
     fd.append("upload_file", file);
