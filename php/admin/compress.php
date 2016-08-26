@@ -42,7 +42,7 @@ if(isset($_GET['URL'])){
 	header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
 
 	/* Set data type, size and filename 
-	header("Content-Type: application/octet-stream");
+//	header("Content-Type: application/octet-stream");
   // header("Content-Type: jpeg");
 	header("Content-Transfer-Encoding: binary");
 	header("Content-Length: " . strlen($buffer));
