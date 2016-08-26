@@ -49,7 +49,7 @@ if(isset($_GET['URL'])){
 	header("Content-Disposition: attachment; filename=image.jpg");*/
 
 	/* Send our file... */
-  header("Content-Type:image/jpeg");
+  header("Content-Type:jpeg");
   echo $buffer;
 }
 ini_restore("memory_limit");
