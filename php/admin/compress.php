@@ -10,7 +10,9 @@ function output_image ( $image_file ) {
 
 ini_set("memory_limit",-1);
 if(isset($_GET['URL'])){
+	
   $filename = SERVERROOTPATH.$_GET['URL'];
+	die($filename );
   $image;
   switch ( strtolower(explode("?",end(explode(".",$_GET['URL'])))[0]) ) {
       case 'jpeg':
